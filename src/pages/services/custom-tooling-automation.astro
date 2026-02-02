@@ -1,0 +1,46 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+
+const metadata = {
+  title: 'Custom Tooling & Automation — rebel-state',
+  description: 'Build bespoke middleware, dashboards, and automation to eliminate manual bottlenecks and scale operations.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Services"
+    title="Custom Tooling & Automation"
+    subtitle="Eliminate manual bottlenecks with bespoke tooling and scalable automation built for your workflows."
+    actions={[{ text: 'Contact us', href: '/contact', variant: 'primary' }]}
+  />
+
+  <Content
+    items={[
+      {
+        title: 'Operational Sovereignty',
+        description: 'We design systems that make your software serve your business, not the other way around.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Glue Work Removal',
+        description: 'We audit your stack to find repetitive, manual tasks and replace them with reliable automation.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Scalable Architecture',
+        description: 'Solutions are modular and maintainable so they evolve with your business.',
+        icon: 'tabler:layers-union',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h2 class="text-2xl font-bold mb-4">What we build</h2>
+      <p class="mb-4">We begin with a deep audit of your technology stack to identify the "glue work"—manual data transfers, reconciliations, and ad-hoc scripts that slow your team down. From there we design bespoke middleware, internal dashboards, and standalone applications that eliminate those friction points.</p>
+      <p class="mb-4">Our automation goes beyond simple "If This Then That" logic: we build robust, testable systems using modern languages and frameworks to ensure longevity and low maintenance overhead. Every solution is built with observability, error-handling, and modularity in mind.</p>
+      <p>When you reduce manual toil, your team can focus on high-leverage activities: strategy, product development, and customer outcomes.</p>
+    </Fragment>
+  </Content>
+</Layout>
