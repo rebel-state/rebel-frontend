@@ -1,0 +1,24 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Model Training & Specialized AI — rebel-state',
+  description: 'Fine-tune and deploy vertical models using LoRA/QLoRA and RAG with data sovereignty in mind.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Services"
+    title="Model Training & Specialized AI"
+    subtitle="We specialize in tailoring models to your domain data, improving accuracy and reducing hallucinations."
+    actions={[{ text: 'Contact us', href: '/contact', variant: 'primary' }]}
+  />
+
+  <main class="prose mx-auto max-w-4xl py-12">
+    <p>We curate your hidden knowledge—documents, logs, project history—and fine-tune models or deploy RAG architectures so AI answers reflect your reality.</p>
+    <h3>Security & Sovereignty</h3>
+    <p>We deploy private or VPC-hosted instances so your data never leaves your control while still providing high-performance models.</p>
+  </main>
+</Layout>
