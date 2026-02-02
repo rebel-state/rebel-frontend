@@ -1,0 +1,24 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Educational Content & Tools — rebel-state',
+  description: 'Interactive courses, corporate training, and tools built from your real data to accelerate adoption and learning.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Services"
+    title="Educational Content & Tools"
+    subtitle="Project-based training and corporate courses that turn your project history into actionable learning paths."
+    actions={[{ text: 'Contact us', href: '/contact', variant: 'primary' }]}
+  />
+
+  <main class="prose mx-auto max-w-4xl py-12">
+    <p>We create educational ecosystems that combine community content, interactive apps, and corporate courses built from your proprietary data to reduce time-to-productivity and increase technical literacy.</p>
+    <h3>Corporate training</h3>
+    <p>Custom onboarding and upskilling programs grounded in your workflows, standards, and historical projects.</p>
+  </main>
+</Layout>

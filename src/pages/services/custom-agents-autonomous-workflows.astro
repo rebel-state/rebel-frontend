@@ -1,0 +1,24 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Custom Agents & Autonomous Workflows — rebel-state',
+  description: 'Design and deploy agentic workflows that autonomously execute multi-step tasks while providing human oversight.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Services"
+    title="Custom Agents & Autonomous Workflows"
+    subtitle="Autonomous agents that research, synthesize, and act — with human-in-the-loop control when needed."
+    actions={[{ text: 'Contact us', href: '/contact', variant: 'primary' }]}
+  />
+
+  <main class="prose mx-auto max-w-4xl py-12">
+    <p>We build agents that can reason and plan across multiple steps—researching leads, drafting outreach, scheduling follow-ups, and more. Our agents integrate with your software and are built with oversight and safety in mind.</p>
+    <h3>Human-in-the-loop</h3>
+    <p>Where necessary we implement HITL protocols so humans retain final approval and quality control.</p>
+  </main>
+</Layout>

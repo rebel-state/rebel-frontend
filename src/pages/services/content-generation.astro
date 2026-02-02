@@ -1,0 +1,24 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Content Generation — rebel-state',
+  description: 'Programmatic content engines that produce consistent, brand-aligned content across channels.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Services"
+    title="Content Generation"
+    subtitle="Programmatic, brand-aligned content production at scale using curated knowledge bases and data.">
+    <Fragment slot="subtitle"></Fragment>
+  </Hero>
+
+  <main class="prose mx-auto max-w-4xl py-12">
+    <p>We build engines that convert a single knowledge base into multi-channel assets: documentation, blog posts, social posts, and email sequences—consistent and on-brand.</p>
+    <h3>Knowledge-backed synthesis</h3>
+    <p>By connecting content generation to real-time business data, we create hyper-current, personalized outputs at scale.</p>
+  </main>
+</Layout>

@@ -63,6 +63,45 @@ const seoProps: AstroSeoProps = merge(
     twitter: twitter,
   }
 );
+  // Build JSON-LD for Organization and Service in frontmatter so template can render them
+  const siteUrl = SITE?.site || String(Astro.site || '');
+  const org = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: SITE?.name || siteUrl.replace(/^https?:\/\//, ''),
+    url: siteUrl,
+  } as any;
+
+  // If openGraph image available, include logo
+  const ogImages = seoProps?.openGraph?.images || METADATA?.openGraph?.images;
+  if (ogImages && ogImages.length > 0) {
+    org.logo = Array.isArray(ogImages) ? ogImages[0]?.url || ogImages[0] : ogImages;
+  }
+
+  const ldOrg = JSON.stringify(org, undefined, 2);
+
+  // For service pages, prepare Service JSON-LD
+  let ldService: string | null = null;
+  const path = String(Astro.url?.pathname || '');
+  if (path.startsWith('/services')) {
+    const service = {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: seoProps?.title || title || METADATA?.title?.default,
+      description: seoProps?.description || description || METADATA?.description,
+      provider: {
+        '@type': 'Organization',
+        name: SITE?.name,
+        url: siteUrl,
+      },
+      url: seoProps?.canonical || canonical,
+    } as any;
+
+    ldService = JSON.stringify(service, undefined, 2);
+  }
 ---
 
 <AstroSeo {...{ ...seoProps, openGraph: await adaptOpenGraphImages(seoProps?.openGraph, Astro.site) }} />
+
+<script type="application/ld+json" set:html={ldOrg} />
+{ldService && <script type="application/ld+json" set:html={ldService} />}

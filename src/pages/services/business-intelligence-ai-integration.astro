@@ -1,0 +1,25 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Business Intelligence & AI Integration — rebel-state',
+  description: 'Transform data into a System of Intelligence with predictive models, unified dashboards, and ETL pipelines.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Services"
+    title="Business Intelligence & AI Integration"
+    subtitle="Transform fragmented data into a unified System of Intelligence and embed AI into decision workflows."
+    actions={[{ text: 'Contact us', href: '/contact', variant: 'primary' }]}
+  />
+
+  <main class="prose mx-auto max-w-4xl py-12">
+    <h2>Refine data into insight</h2>
+    <p>Most businesses are drowning in data but starving for insights. We implement ETL, data unification, and predictive modeling so leadership can move from reactive to proactive decisions.</p>
+    <h3>Integration</h3>
+    <p>We bake AI into workflows rather than bolting it on, delivering dashboards and alerting systems that notify stakeholders of critical anomalies and opportunities in real time.</p>
+  </main>
+</Layout>
