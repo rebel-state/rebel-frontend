@@ -1,121 +1,58 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import fs from 'fs';
+import path from 'path';
+
+// Helper to detect whether a page exists under src/pages for a given href
+const pageExists = (href: string) => {
+  try {
+    if (!href || href === '#' || href.startsWith('http')) return false;
+    // Normalize to a filesystem path under src/pages
+    const cleaned = href.replace(/^\//, '').replace(/\/?$/, '');
+    if (cleaned === '') {
+      // home page
+      const p = path.join(process.cwd(), 'src', 'pages', 'index.astro');
+      return fs.existsSync(p);
+    }
+    const candidates = [
+      path.join(process.cwd(), 'src', 'pages', `${cleaned}.astro`),
+      path.join(process.cwd(), 'src', 'pages', cleaned, 'index.astro'),
+    ];
+    return candidates.some((c) => fs.existsSync(c));
+  } catch (err) {
+    return false;
+  }
+};
+
+const makeLink = (text: string, href: string) => ({ text, href: getPermalink(href), disabled: !pageExists(href) });
 
 export const headerData = {
   links: [
+    makeLink('Home', '/'),
     {
-      text: 'Homes',
+      text: 'About',
       links: [
-        {
-          text: 'SaaS',
-          href: getPermalink('/homes/saas'),
-        },
-        {
-          text: 'Startup',
-          href: getPermalink('/homes/startup'),
-        },
-        {
-          text: 'Mobile App',
-          href: getPermalink('/homes/mobile-app'),
-        },
-        {
-          text: 'Personal',
-          href: getPermalink('/homes/personal'),
-        },
+        makeLink('About', '/about'),
+        makeLink('Services', '/services'),
+        makeLink('Projects', '/projects'),
+        makeLink('Products', '/products'),
+        makeLink('Contact', '/contact-us'),
+        makeLink('Terms', '/terms'),
+        makeLink('Privacy', '/privacy'),
       ],
     },
     {
-      text: 'Pages',
+      text: 'Info',
       links: [
-        {
-          text: 'Features (Anchor Link)',
-          href: getPermalink('/#features'),
-        },
-        {
-          text: 'Services',
-          href: getPermalink('/services'),
-        },
-        {
-          text: 'Pricing',
-          href: getPermalink('/pricing'),
-        },
-        {
-          text: 'About us',
-          href: getPermalink('/about'),
-        },
-        {
-          text: 'Contact',
-          href: getPermalink('/contact'),
-        },
-        {
-          text: 'Terms',
-          href: getPermalink('/terms'),
-        },
-        {
-          text: 'Privacy policy',
-          href: getPermalink('/privacy'),
-        },
+        makeLink('Latest Articles', '/blog/'),
+        makeLink('Hot Topics', '/blog'),
+        makeLink('News', '/blog'),
+        makeLink('Tutorials', '/blog'),
       ],
     },
-    {
-      text: 'Landing',
-      links: [
-        {
-          text: 'Lead Generation',
-          href: getPermalink('/landing/lead-generation'),
-        },
-        {
-          text: 'Long-form Sales',
-          href: getPermalink('/landing/sales'),
-        },
-        {
-          text: 'Click-Through',
-          href: getPermalink('/landing/click-through'),
-        },
-        {
-          text: 'Product Details (or Services)',
-          href: getPermalink('/landing/product'),
-        },
-        {
-          text: 'Coming Soon or Pre-Launch',
-          href: getPermalink('/landing/pre-launch'),
-        },
-        {
-          text: 'Subscription',
-          href: getPermalink('/landing/subscription'),
-        },
-      ],
-    },
-    {
-      text: 'Blog',
-      links: [
-        {
-          text: 'Blog List',
-          href: getBlogPermalink(),
-        },
-        {
-          text: 'Article',
-          href: getPermalink('get-started-website-with-astro-tailwind-css', 'post'),
-        },
-        {
-          text: 'Article (with MDX)',
-          href: getPermalink('markdown-elements-demo-post', 'post'),
-        },
-        {
-          text: 'Category Page',
-          href: getPermalink('tutorials', 'category'),
-        },
-        {
-          text: 'Tag Page',
-          href: getPermalink('astro', 'tag'),
-        },
-      ],
-    },
-    {
-      text: 'Widgets',
-      href: '#',
-    },
+    // Members link - show but disabled if no page
+    { text: 'Members', href: '#', disabled: true },
   ],
-  actions: [{ text: 'Download', href: 'https://github.com/arthelokyo/astrowind', target: '_blank' }],
+  actions: [{ text: 'Login', href: '/login', disabled: true }],
 };
 
 export const footerData = {
@@ -123,46 +60,43 @@ export const footerData = {
     {
       title: 'Product',
       links: [
-        { text: 'Features', href: '#' },
-        { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
-        { text: 'Resources', href: '#' },
+        { text: 'Proton For Business', href: getPermalink('/products/'), disabled: true },
+        { text: 'Mail', href: getPermalink('/products/'), disabled: true },
+        { text: 'VPN', href: getPermalink('/products/'), disabled: true },
+        { text: 'Password', href: getPermalink('/products/'), disabled: true },
+        { text: 'Storage', href: getPermalink('/products/'), disabled: true },
       ],
     },
     {
-      title: 'Platform',
+      title: 'Shop',
       links: [
-        { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-        { text: 'Atom', href: '#' },
-        { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
+        { text: 'E-Books', href: getPermalink('/shop'), disabled: true },
+        { text: 'Hardware', href: getPermalink('/shop'), disabled: true },
+        { text: 'Merch', href: getPermalink('/shop'), disabled: true },
       ],
     },
     {
-      title: 'Support',
+      title: 'Members',
       links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
+        { text: 'Login', href: '#', disabled: true },
+        { text: 'Encryption', href: '#', disabled: true },
+        { text: 'Newsletter', href: '#', disabled: true },
+        { text: 'Status', href: '#', disabled: true },
       ],
     },
+    // Mirror the 'About' section links in headerData so company links stay in sync
     {
       title: 'Company',
-      links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
-      ],
+      links: ((): Array<{ text: string; href: string; disabled?: boolean }> => {
+        const about = headerData.links.find((l) => l.text === 'About');
+        if (!about || !Array.isArray((about as any).links)) {
+          return [
+            { text: 'About', href: getPermalink('/about') },
+            { text: 'Blog', href: getBlogPermalink() },
+          ];
+        }
+        return (about as any).links.map((item: any) => ({ text: item.text, href: item.href, disabled: item.disabled }));
+      })(),
     },
   ],
   secondaryLinks: [
@@ -174,9 +108,9 @@ export const footerData = {
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/arthelokyo/astrowind' },
+    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/rebel-state/rebel-frontend' },
   ],
   footNote: `
-    Made by <a class="text-blue-600 underline dark:text-muted" href="https://github.com/arthelokyo"> Arthelokyo</a> · All rights reserved.
+    Made by <a class="text-blue-600 underline dark:text-muted" href="https://github.com/rebel-state"> Rebel-State</a> · All rights reserved.
   `,
 };

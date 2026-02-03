@@ -1,6 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
 
 const metadata = {
   title: 'Custom Agents & Autonomous Workflows — rebel-state',
@@ -14,12 +15,19 @@ const metadata = {
     title="Custom Agents & Autonomous Workflows"
     subtitle="Autonomous agents that research, synthesize, and act — with human-in-the-loop control when needed."
     actions={[{ text: 'Contact us', href: '/contact', variant: 'primary' }]}
+    image={{ src: '~/assets/images/mega-city.jpg', alt: 'Autonomous systems' }}
   />
-  <main class="prose mx-auto max-w-4xl py-12">
-    <p>The paradigm of software is shifting from "Tools we use" to "Agents that work for us." At rebel-state, we are at the forefront of the Agentic Revolution. Custom Agents are specialized AI entities capable of executing multi-step tasks with a degree of autonomy that standard automation cannot reach. While traditional automation follows a linear path, an Agent can reason, plan, and adjust its course based on the feedback it receives from its environment.</p>
-
-    <p>We design and deploy these agents to act as a "Digital Workforce." Imagine an agent that doesn't just notify you of a new lead but researches the lead's company, analyzes their recent public filings, drafts a personalized outreach email based on your brand voice, and schedules a follow-up—all without human intervention. This is the level of autonomy rebel-state brings to your workflows. We utilize state-of-the-art frameworks to build agents that can interact with your existing software suite, browse the web for real-time information, and perform complex data synthesis.</p>
-
-    <p>Building autonomous workflows requires a deep understanding of task decomposition. We break down your most complex business goals into high-fidelity sub-tasks that agents can manage reliably. We implement "Human-in-the-loop" (HITL) protocols where necessary, ensuring that while the agent does the heavy lifting, your team maintains ultimate oversight and quality control. This approach minimizes cognitive fatigue and allows for a "Managerial Scale"—where one person can oversee a fleet of agents performing the work of an entire department. Whether it’s autonomous customer support, automated technical documentation, or real-time supply chain optimization, our agents are built to be reliable, secure, and incredibly efficient.</p>
-  </main>
+  <Content
+    items={[
+      {
+        description: `The paradigm of software is shifting from "Tools we use" to "Agents that work for us." At rebel-state, we are at the forefront of the Agentic Revolution. Custom Agents are specialized AI entities capable of executing multi-step tasks with a degree of autonomy that standard automation cannot reach. While traditional automation follows a linear path, an Agent can reason, plan, and adjust its course based on the feedback it receives from its environment.`,
+      },
+      {
+        description: `<img src="/assets/images/new-matrix.jpg" alt="Agent planning" class="w-full rounded-lg mb-4"/>\n\nWe design and deploy these agents to act as a \"Digital Workforce.\" Imagine an agent that doesn't just notify you of a new lead but researches the lead's company, analyzes their recent public filings, drafts a personalized outreach email based on your brand voice, and schedules a follow-up—all without human intervention. This is the level of autonomy rebel-state brings to your workflows. We utilize state-of-the-art frameworks to build agents that can interact with your existing software suite, browse the web for real-time information, and perform complex data synthesis.`,
+      },
+      {
+        description: `Building autonomous workflows requires a deep understanding of task decomposition. We break down your most complex business goals into high-fidelity sub-tasks that agents can manage reliably. We implement "Human-in-the-loop" (HITL) protocols where necessary, ensuring that while the agent does the heavy lifting, your team maintains ultimate oversight and quality control. This approach minimizes cognitive fatigue and allows for a "Managerial Scale"—where one person can oversee a fleet of agents performing the work of an entire department. Whether it’s autonomous customer support, automated technical documentation, or real-time supply chain optimization, our agents are built to be reliable, secure, and incredibly efficient.`,
+      },
+    ]}
+  />
 </Layout>
