@@ -1,0 +1,76 @@
+---
+import Image from '~/components/common/Image.astro';
+
+const {
+  id = undefined,
+  tagline = '',
+  title = '',
+  subtitle = '',
+  image = undefined,
+  height = 640,
+  classes = {},
+} = Astro.props;
+
+// ensure a stable id for the hero so the client script can target it
+const uid = id ?? `hero-${String(Math.abs(Math.floor(Math.random() * 1e9)))}`;
+---
+
+<div id={uid} class={`relative overflow-hidden`} style={`--hero-height:${height}px; --hero-scale:1; --hero-opacity:1;`}>
+  <!-- Fixed background image (optimized via Image.astro) -->
+  <div class="pointer-events-none fixed inset-0 z-0 flex items-center justify-center">
+    <div class="w-full h-[var(--hero-height)] transform-gpu" style="transform: scale(var(--hero-scale)); opacity: var(--hero-opacity); transition: transform 200ms linear, opacity 200ms linear;">
+      {image ? (
+        <Image
+          src={image.src}
+          alt={image.alt || ''}
+          class="object-cover w-full h-full"
+          layout="fullWidth"
+          widths={[640, 1024, 1600]}
+          sizes="100vw"
+        />
+      ) : (
+        <div class="w-full h-[var(--hero-height)] bg-gray-200" />
+      )}
+    </div>
+  </div>
+
+  <!-- Content overlay -- sits above the image -->
+  <div class="relative z-10" style={`height:var(--hero-height)`}>
+    <div class={`max-w-6xl mx-auto h-full flex flex-col items-center justify-center text-center px-6 ${classes.container ?? ''}`}>
+      {tagline && <p class="text-sm uppercase tracking-wider text-muted mb-3">{tagline}</p>}
+      {title && <h1 class="text-4xl md:text-6xl font-bold leading-tight text-white drop-shadow-lg">{title}</h1>}
+      {subtitle && <p class="mt-4 text-lg md:text-xl text-white/90 max-w-3xl">{subtitle}</p>}
+    </div>
+  </div>
+
+  <!-- Spacer so content below the hero scrolls over the fixed image -->
+  <div style={`height:calc(var(--hero-height) * 0.65)`} class="block md:hidden" />
+
+  <script>
+    {(function(){
+      // Use the current script's parent element as the hero root so we don't need server-side ids
+      const scriptEl = document.currentScript;
+      const root = scriptEl ? scriptEl.parentElement : document.querySelector('[data-hero]');
+      if(!root) return;
+      // Determine how much scroll should affect the hero (cap)
+      const heroHeight = parseInt(getComputedStyle(root).getPropertyValue('--hero-height')) || 640;
+      const maxScroll = Math.max(200, Math.min(heroHeight, 900));
+
+      const update = () => {
+        const sc = Math.max(0, Math.min(window.scrollY, maxScroll));
+        const p = sc / maxScroll; // 0 -> 1
+        const scale = 1 - p * 0.15; // shrink up to 15%
+        const opacity = 1 - p * 0.5; // fade to 50%
+  // root is an Element; style exists on HTMLElement. Use ts-ignore to silence static check inside the inline script.
+  // @ts-ignore
+  root.style.setProperty('--hero-scale', String(scale));
+  // @ts-ignore
+  root.style.setProperty('--hero-opacity', String(opacity));
+      };
+
+      update();
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+    }).toString().replace(/^function\s*\(\)\s*\{\n|\n\}$/g, '')}
+  </script>
+</div>

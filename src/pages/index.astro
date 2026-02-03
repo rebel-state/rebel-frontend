@@ -2,6 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
+import HeroAnimated from '~/components/widgets/HeroAnimated.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
@@ -13,26 +14,15 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+  <!-- Hero Widget (animated) ******************* -->
 
-  <Hero
-    actions={[
-      { text: 'Learn more', href: '#features' },
-    ]}
-    image={{ src: '~/assets/images/do-something-great.jpg', alt: 'Do Something Great' }}
-  >
-    <Fragment slot="title">
-      Engineering the Future of Intelligence
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        Our mission is to dismantle inefficiency. We empower organizations to reclaim their time and scale their impact by providing the most sophisticated technical tools and knowledge available. At Rebel-State, we don't just follow the future—we build it.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">Rebel-State: Knowledge is Power.</span>
-      We dismantle inefficiency by providing the sophisticated tools and knowledge organizations need to scale their impact. At rebel-state, we don't just follow the future—we build it.
-    </Fragment>
-  </Hero>
+  <HeroAnimated
+    tagline=""
+    title="Engineering the Future of Intelligence"
+    subtitle={`Our mission is to dismantle inefficiency. We empower organizations to reclaim their time and scale their impact by providing the most sophisticated technical tools and knowledge available. At Rebel-State, we don't just follow the future—we build it.`}
+    image={{ src: '~/assets/images/rebel-state-logo.svg', alt: 'Rebel-State' }}
+    height={640}
+  />
 
   <!-- Services Widget *************** -->
 
