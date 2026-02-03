@@ -1,9 +1,11 @@
 ---
 import { SITE } from 'astrowind:config';
+import { getPermalink } from '~/utils/permalinks';
+
+const logoSrc = SITE?.logo ? getPermalink(SITE.logo, 'asset') : getPermalink('/assets/images/rebel-state-logo.svg', 'asset');
 ---
 
-<span
-  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
->
-  🚀 {SITE?.name}
-</span>
+<a class="flex items-center gap-2" href="/">
+  <img src={logoSrc} alt={`${SITE?.name} logo`} class="h-8 w-auto" />
+  <span class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-xl md:text-lg font-bold text-gray-900 whitespace-nowrap dark:text-white">{SITE?.name}</span>
+</a>

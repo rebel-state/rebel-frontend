@@ -1,6 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
 
 const metadata = {
   title: 'Business Intelligence & AI Integration — rebel-state',
@@ -14,12 +15,19 @@ const metadata = {
     title="Business Intelligence & AI Integration"
     subtitle="Transform fragmented data into a unified System of Intelligence and embed AI into decision workflows."
     actions={[{ text: 'Contact us', href: '/contact', variant: 'primary' }]}
+    image={{ src: '~/assets/images/new-matrix.jpg', alt: 'Data analytics visualization' }}
   />
-  <main class="prose mx-auto max-w-4xl py-12">
-    <p>Data is often described as the new oil, but raw data, like crude oil, is useless until it is refined. Most businesses are currently drowning in data but starving for insights. rebel-state’s Business Intelligence (BI) & AI Integration service transforms your fragmented data streams into a coherent, strategic narrative. We don't just provide charts; we provide a "System of Intelligence" that actively informs your next move.</p>
-
-    <p>The core of our approach is the seamless integration of Artificial Intelligence into the very fabric of your decision-making process. Traditional BI looks backward—it tells you what happened last quarter. Our AI-enhanced BI looks forward. By implementing predictive modeling and sentiment analysis, we help businesses anticipate market shifts, identify emerging customer needs, and detect internal inefficiencies before they become liabilities. We specialize in creating "Single Source of Truth" environments where data from sales, marketing, operations, and finance are unified into a real-time, interactive ecosystem.</p>
-
-    <p>Integration is the most difficult hurdle in the AI era. Many companies attempt to "bolt on" AI as a secondary feature, leading to fragmented user experiences and data silos. rebel-state ensures that AI is baked into your workflow. We leverage advanced ETL (Extract, Transform, Load) processes to ensure your data is clean, structured, and ready for analysis. From there, we deploy custom-built dashboards and alerting systems that notify stakeholders of critical anomalies or opportunities as they arise. This proactive stance moves your leadership from reactive firefighting to strategic foresight. With rebel-state, your business intelligence becomes a living, breathing asset that grows more accurate and more valuable with every byte of data it processes.</p>
-  </main>
+  <Content
+    items={[
+      {
+        description: `Data is often described as the new oil, but raw data, like crude oil, is useless until it is refined. Most businesses are currently drowning in data but starving for insights. rebel-state’s Business Intelligence (BI) & AI Integration service transforms your fragmented data streams into a coherent, strategic narrative. We don't just provide charts; we provide a "System of Intelligence" that actively informs your next move.`,
+      },
+      {
+        description: `<img src="/assets/images/hero-image.png" alt="Data pipeline" class="w-full rounded-lg mb-4"/>\n\nThe core of our approach is the seamless integration of Artificial Intelligence into the very fabric of your decision-making process. Traditional BI looks backward—it tells you what happened last quarter. Our AI-enhanced BI looks forward. By implementing predictive modeling and sentiment analysis, we help businesses anticipate market shifts, identify emerging customer needs, and detect internal inefficiencies before they become liabilities. We specialize in creating "Single Source of Truth" environments where data from sales, marketing, operations, and finance are unified into a real-time, interactive ecosystem.`,
+      },
+      {
+        description: `Integration is the most difficult hurdle in the AI era. Many companies attempt to "bolt on" AI as a secondary feature, leading to fragmented user experiences and data silos. rebel-state ensures that AI is baked into your workflow. We leverage advanced ETL (Extract, Transform, Load) processes to ensure your data is clean, structured, and ready for analysis. From there, we deploy custom-built dashboards and alerting systems that notify stakeholders of critical anomalies or opportunities as they arise. This proactive stance moves your leadership from reactive firefighting to strategic foresight. With rebel-state, your business intelligence becomes a living, breathing asset that grows more accurate and more valuable with every byte of data it processes.`,
+      },
+    ]}
+  />
 </Layout>

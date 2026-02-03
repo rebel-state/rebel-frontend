@@ -1,5 +1,7 @@
 site:
   name: 'Rebel-State'
+  # Path to the site logo used in components (must be accessible under /assets/...)
+  logo: '/assets/images/rebel-state-logo.svg'
   site: 'https://rebel-state.net'
   base: '/'
   trailingSlash: false
@@ -11,7 +13,7 @@ metadata:
   title:
     default: 'Rebel-State'
     template: '%s — Rebel-State'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+  description: "Rebel-State: engineering custom tooling, AI & data systems, autonomous agents, model training, content generation, and education to give organizations operational sovereignty."
   robots:
     index: true
     follow: true
