@@ -1,0 +1,23 @@
+{
+  "name": "Rebel-State Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:0-20",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "postCreateCommand": "npm install",
+  "postStartCommand": "printf 'You can run the dev server with: npm run dev\n'",
+  "forwardPorts": [3000, 8080],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "remoteUser": "vscode"
+}
