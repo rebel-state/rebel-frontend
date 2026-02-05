@@ -1,0 +1,180 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Proton VPN: Secure, Private, and Uncensored Internet',
+  description:
+    'Discover the features and benefits of Proton VPN, the high-speed, secure VPN that protects your privacy and gives you access to the open internet.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <HeroText
+    tagline="Product Spotlight"
+    title="Proton VPN"
+    subtitle="The VPN service that puts your privacy first. High-speed, secure, and based in Switzerland, Proton VPN unblocks content and keeps you safe online."
+  />
+
+  <!-- Features Section -->
+  <Features3
+    title="Why Choose Proton VPN?"
+    subtitle="Go beyond traditional VPN providers and choose a service that is built for security and privacy from the ground up."
+    columns={3}
+    items={[
+      {
+        icon: 'tabler:shield-lock',
+        title: 'NetShield Ad-blocker',
+        description: 'Blocks ads, trackers, and malware, keeping you safe and speeding up your browsing.',
+      },
+      {
+        icon: 'tabler:device-gamepad-2',
+        title: 'Stealth VPN Protocol',
+        description: 'Overcomes internet censorship and VPN blocks with our undetectable VPN protocol.',
+      },
+      {
+        icon: 'tabler:server-2',
+        title: 'Secure Core Architecture',
+        description:
+          'Routes your traffic through multiple servers in privacy-friendly countries to defend against network-based attacks.',
+      },
+      {
+        icon: 'tabler:lock-open',
+        title: 'Strict No-Logs Policy',
+        description: 'Proton VPN does not log your online activity. Your browsing history remains private.',
+      },
+      {
+        icon: 'tabler:brand-open-source',
+        title: 'Open Source & Audited',
+        description:
+          'Our apps are fully open source and have been independently audited, so you can be sure they are secure.',
+      },
+      {
+        icon: 'tabler:cloud-upload',
+        title: 'P2P/BitTorrent Support',
+        description: 'Connect to servers optimized for file sharing with fast and secure P2P support.',
+      },
+    ]}
+  />
+
+  <!-- Problem & Solution Section -->
+  <Content
+    isReversed
+    title="Your Internet Connection is Being Watched"
+    subtitle="Internet service providers (ISPs), governments, and hackers can monitor your online activity, track your location, and even block your access to content. Your digital life is exposed and vulnerable."
+    items={[
+      {
+        title: 'ISP Throttling and Monitoring',
+        description:
+          'ISPs can slow down your connection based on your activity and sell your browsing data to advertisers.',
+      },
+      {
+        title: 'Censorship and Content Blocks',
+        description:
+          'Governments and corporations can restrict access to websites, social media, and news, limiting your freedom of information.',
+      },
+      {
+        title: 'Public Wi-Fi Risks',
+        description:
+          'Unsecured public Wi-Fi networks are a breeding ground for hackers who can easily steal your passwords and personal data.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/red-team.jpg',
+      alt: 'A map showing global internet connections',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Reclaim Your Internet Freedom</h3>
+      <p>
+        Proton VPN encrypts your internet connection, hiding your IP address and online activity from prying eyes. We
+        believe in a free and open internet for everyone, and our service is designed to give you back control over your
+        digital world.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- How It Works Section -->
+  <Steps
+    title="Getting Started is Simple"
+    subtitle="You can get a secure VPN connection in minutes and start browsing the web with freedom and privacy."
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Choose Your Plan</span>',
+        description:
+          'Proton VPN offers a range of plans, including a free version with essential privacy features and paid plans with advanced capabilities and higher speeds.',
+        icon: 'tabler:select',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Install the App</span>',
+        description:
+          'Download the Proton VPN app for your device. We support Windows, macOS, Linux, iOS, Android, and more.',
+        icon: 'tabler:download',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Connect to a Server</span>',
+        description:
+          'Open the app and connect to one of our high-speed servers in over 60 countries. Your connection is now secure.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Browse Freely</span>',
+        description:
+          'Enjoy unrestricted access to the internet with the peace of mind that your online activity is private and secure.',
+        icon: 'tabler:mood-smile',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/multi-crypto.jpg',
+      alt: 'Abstract image representing a secure connection',
+    }}
+  />
+
+  <!-- FAQs Section -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Common questions about Proton VPN."
+    columns={1}
+    items={[
+      {
+        title: 'Is Proton VPN really free?',
+        description:
+          "Yes, Proton VPN has a free-for-life plan with no data limits or ads. It's funded by paying users, which allows us to provide a free service for those who need it most.",
+      },
+      {
+        title: 'What makes Proton VPN different from other VPNs?',
+        description:
+          'Proton VPN is created by the same team of scientists who met at CERN and created Proton Mail. We have a strong focus on security, transparency, and privacy advocacy.',
+      },
+      {
+        title: 'Can I use Proton VPN for streaming?',
+        description:
+          'Yes, our Plus plan subscribers can stream popular services like Netflix, Disney+, and Amazon Prime Video by connecting to our specialized streaming servers.',
+      },
+    ]}
+  />
+
+  <!-- Call to Action Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Proton VPN Now',
+        href: '#', // Placeholder for affiliate link
+        icon: 'tabler:shield-check',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Ready to Browse the Web Without Borders? </Fragment>
+    <Fragment slot="subtitle">
+      Join the millions who are using Proton VPN to protect their online privacy and access a free and open internet.
+      Get started today.
+    </Fragment>
+  </CallToAction>
+</Layout>
