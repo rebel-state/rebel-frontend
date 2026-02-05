@@ -1,0 +1,175 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Proton Mail: Secure, Private Email',
+  description: 'Discover the features and benefits of Proton Mail, the world’s largest secure email provider. Take control of your digital privacy.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <HeroText
+    tagline="Product Spotlight"
+    title="Proton Mail"
+    subtitle="The only email service that protects your privacy by default. End-to-end encrypted, based in Switzerland, and built on the principle of data sovereignty."
+  />
+
+  <!-- Features Section -->
+  <Features3
+    title="Why Choose Proton Mail?"
+    subtitle="Go beyond traditional email providers and choose a service that puts your privacy first. Here are the key features that set Proton Mail apart."
+    columns={3}
+    items={[
+      {
+        icon: 'tabler:lock',
+        title: 'End-to-End Encryption',
+        description: 'Your emails are encrypted at all times. No one can read your messages, not even Proton Mail.',
+      },
+      {
+        icon: 'tabler:shield-check',
+        title: 'Swiss Privacy Laws',
+        description: 'Your data is protected by some of the strictest privacy laws in the world. Proton Mail is outside of US and EU jurisdiction.',
+      },
+      {
+        icon: 'tabler:eye-off',
+        title: 'Zero-Access Encryption',
+        description: 'Data stored on Proton Mail servers is encrypted in a way that is inaccessible to the company, ensuring your privacy is absolute.',
+      },
+       {
+        icon: 'tabler:source-code',
+        title: 'Open Source & Audited',
+        description: 'Proton Mail’s apps are open source and regularly audited by independent security experts, providing full transparency.',
+      },
+       {
+        icon: 'tabler:mail-forward',
+        title: 'Password-Protected Emails',
+        description: 'Send end-to-end encrypted emails to anyone, even if they don’t use Proton Mail, with a simple password.',
+      },
+       {
+        icon: 'tabler:world',
+        title: 'Custom Domains',
+        description: 'Use your own domain name (`you@yourcompany.com`) for a professional look that reinforces your brand.',
+      },
+    ]}
+  />
+
+  <!-- Problem & Solution Section -->
+  <Content
+    isReversed
+    title="Your Inbox is a Treasure Trove of Your Life"
+    subtitle="Mainstream email providers like Gmail and Outlook treat your data as a product. They scan your emails to build a detailed profile of you, which they use to sell targeted ads."
+    items={[
+        {
+            title: 'Invasive Data Scanning',
+            description:
+            'Your most private conversations are being analyzed and monetized without your consent. This creates a massive privacy vulnerability.',
+        },
+        {
+            title: 'Government Surveillance',
+            description:
+            'Email providers based in the US are subject to laws like the CLOUD Act, which can force them to hand over your data to authorities.',
+        },
+        {
+            title: 'Loss of Control',
+            description:
+            'When your data is the product, you lose control over who sees it and how it’s used. Your personal life becomes a commodity.',
+        },
+    ]}
+    image={{
+      src: '~/assets/images/dark-locked.jpg',
+      alt: 'A securely locked inbox',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Take Back Your Privacy</h3>
+     <p>Proton Mail offers a different model. Our business is privacy, not advertising. We believe you have a right to private communication, and our entire service is built to defend that right. With Proton Mail, you are the customer, not the product.</p>
+    </Fragment>
+  </Content>
+
+
+  <!-- How It Works Section -->
+  <Steps
+    title="Getting Started is Simple"
+    subtitle="You can create a secure email account in minutes and start protecting your digital life."
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Choose Your Plan</span>',
+        description:
+          "Proton Mail offers a range of plans, from a free account with essential features to business plans with custom domains and administrative controls.",
+        icon: 'tabler:select',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Create Your Account</span>',
+        description:
+          'Sign up anonymously without providing any personal information. Your secure inbox will be ready in under two minutes.',
+        icon: 'tabler:user-plus',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Import Your Data</span>',
+        description:
+          "Use the Easy Switch tool to seamlessly import your existing emails, contacts, and calendars from services like Gmail.",
+        icon: 'tabler:database-import',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Enjoy Your Privacy</span>',
+        description:
+          'Start sending and receiving emails with the peace of mind that comes from knowing your conversations are secure and private.',
+        icon: 'tabler:mood-smile',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/new-matrix.jpg',
+      alt: 'Placeholder for Proton Mail screenshot',
+    }}
+  />
+
+  <!-- FAQs Section -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Common questions about Proton Mail."
+    columns={1}
+    items={[
+      {
+        title: 'Is Proton Mail really free?',
+        description:
+          "Yes, Proton Mail offers a free plan that includes all the core privacy features. Paid plans offer more storage, custom domains, and access to the full Proton productivity suite.",
+      },
+      {
+        title: 'Can I use Proton Mail with my own domain?',
+        description:
+          'Yes, custom domains are available on all paid plans. This is a great feature for businesses and professionals who want a branded email address.',
+      },
+      {
+        title: 'How does Proton Mail make money if it’s not from ads?',
+        description:
+          'Proton Mail is supported by its community of paying users. Revenue from paid subscriptions is used to develop the service and advocate for online privacy.',
+      },
+    ]}
+  />
+
+  <!-- Call to Action Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Your Secure Email',
+        href: '#', // Placeholder for affiliate link
+        icon: 'tabler:rocket',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Ready to Take Control of Your Digital Identity?
+    </Fragment>
+    <Fragment slot="subtitle">
+      Join millions of users who have switched to a more secure and private email service. Create your free Proton Mail account today.
+    </Fragment>
+  </CallToAction>
+</Layout>
