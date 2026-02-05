@@ -1,7 +1,11 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Custom Agents & Autonomous Workflows — rebel-state',
@@ -10,25 +14,164 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Hero
+  <!-- Hero Section -->
+  <HeroText
     tagline="Services"
     title="Custom Agents & Autonomous Workflows"
-    subtitle="Autonomous agents that research, synthesize, and act — with human-in-the-loop control when needed."
-    actions={[{ text: 'Contact us', href: '/contact', variant: 'primary' }]}
-    image={{ src: '~/assets/images/mega-city.jpg', alt: 'Autonomous systems' }}
+    subtitle="Go beyond automation. Deploy a digital workforce of AI agents that can reason, plan, and execute complex, multi-step tasks with strategic autonomy."
   />
-  <Content
-    image={{ src: '~/assets/images/new-matrix.jpg', alt: 'Agent planning' }}
+
+  <!-- Features Section -->
+  <Features3
+    title="The Agentic Revolution"
+    subtitle="We build specialized AI entities that shift the paradigm from 'tools you use' to 'agents that work for you,' creating a scalable, digital workforce."
+    columns={3}
     items={[
       {
-        description: `The paradigm of software is shifting from "Tools we use" to "Agents that work for us." At rebel-state, we are at the forefront of the Agentic Revolution. Custom Agents are specialized AI entities capable of executing multi-step tasks with a degree of autonomy that standard automation cannot reach. While traditional automation follows a linear path, an Agent can reason, plan, and adjust its course based on the feedback it receives from its environment.`,
+        icon: 'tabler:route',
+        title: 'Multi-Step Task Execution',
+        description: 'Agents can reason, plan, and adjust course based on feedback, autonomously executing tasks that are far too complex for traditional automation.',
       },
       {
-        description: `We design and deploy these agents to act as a "Digital Workforce." Imagine an agent that doesn't just notify you of a new lead but researches the lead's company, analyzes their recent public filings, drafts a personalized outreach email based on your brand voice, and schedules a follow-up—all without human intervention. This is the level of autonomy rebel-state brings to your workflows. We utilize state-of-the-art frameworks to build agents that can interact with your existing software suite, browse the web for real-time information, and perform complex data synthesis.`,
+        icon: 'tabler:users',
+        title: 'Your Digital Workforce',
+        description: 'Deploy agents that research new leads, draft personalized outreach, and synthesize data, acting as an extension of your team.',
       },
       {
-        description: `Building autonomous workflows requires a deep understanding of task decomposition. We break down your most complex business goals into high-fidelity sub-tasks that agents can manage reliably. We implement "Human-in-the-loop" (HITL) protocols where necessary, ensuring that while the agent does the heavy lifting, your team maintains ultimate oversight and quality control. This approach minimizes cognitive fatigue and allows for a "Managerial Scale"—where one person can oversee a fleet of agents performing the work of an entire department. Whether it’s autonomous customer support, automated technical documentation, or real-time supply chain optimization, our agents are built to be reliable, secure, and incredibly efficient.`,
+        icon: 'tabler:user-check',
+        title: 'Human-in-the-Loop (HITL)',
+        description: 'Maintain ultimate oversight and quality control. We implement protocols that keep your team in command of the workflow where it matters most.',
+      },
+       {
+        icon: 'tabler:zoom-in',
+        title: 'Deep Task Decomposition',
+        description: 'We break down your most complex business goals into high-fidelity sub-tasks that agents can manage reliably and securely.',
+      },
+       {
+        icon: 'tabler:chart-infographic',
+        title: 'Achieve Managerial Scale',
+        description: 'Empower a single person to oversee a fleet of agents performing the work of an entire department, minimizing cognitive fatigue.',
+      },
+       {
+        icon: 'tabler:search',
+        title: 'Real-Time Web Interaction',
+        description: 'Our agents can browse the web for real-time information, interact with your existing software suite, and perform complex data synthesis.',
       },
     ]}
   />
+
+  <!-- Problem & Solution Section -->
+  <Content
+    isReversed
+    title="Are Your Workflows Hitting a Wall?"
+    subtitle="Traditional automation is rigid and follows a linear path. When complexity increases, your team gets bogged down with manual exceptions and constant fire-fighting, killing productivity."
+    items={[
+        {
+            title: 'Cognitive Overload',
+            description:
+            'Your best people are spending their time managing tedious, multi-step processes instead of focusing on high-impact strategic work.',
+        },
+        {
+            title: 'Linear Automation Fails',
+            description:
+            'Your current tools can’t adapt. They break when faced with unexpected inputs or changes, requiring constant human intervention to fix.',
+        },
+        {
+            title: 'Scalability Bottlenecks',
+            description:
+            'You can’t grow your operations without hiring more people to manage the increasing complexity. Your processes are a bottleneck to scale.',
+        },
+    ]}
+    image={{
+      src: '~/assets/images/mega-city.jpg',
+      alt: 'Autonomous systems',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">From Tools to Teammates</h3>
+     <p>We build a "Digital Workforce" of autonomous agents that work for you. These AI entities can reason, plan, and execute complex workflows, freeing your human team to focus on what they do best: strategy, creativity, and management. We turn your operational friction into a competitive advantage.</p>
+    </Fragment>
+  </Content>
+
+
+  <!-- How It Works Section -->
+  <Steps
+    title="Our Autonomous Workflow Blueprint"
+    subtitle="We follow a proven methodology to design, build, and deploy a reliable and efficient digital workforce that integrates seamlessly with your operations."
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Task Decomposition Workshop</span>',
+        description:
+          "We work with you to break down your most complex business goals into a series of high-fidelity sub-tasks that are suitable for autonomous agents.",
+        icon: 'tabler:diamond',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Agent Design & Prototyping</span>',
+        description:
+          'Using state-of-the-art frameworks, we design and prototype agents, defining their reasoning processes, toolsets, and interaction protocols.',
+        icon: 'tabler:robot',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Integration & HITL Design</span>',
+        description:
+          "We integrate the agents with your existing software stack and design the Human-in-the-Loop (HITL) touchpoints for quality control and oversight.",
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Deployment & Fleet Management</span>',
+        description:
+          'We deploy the agentic workforce and provide the tools for "Managerial Scale," allowing you to monitor and manage your new digital team effectively.',
+        icon: 'tabler:device-imac',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/new-matrix.jpg',
+      alt: 'Agent planning',
+    }}
+  />
+
+
+
+  <!-- FAQs Section -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Common questions about our custom agents and autonomous workflow services."
+    columns={1}
+    items={[
+      {
+        title: 'How do you ensure the agents are reliable?',
+        description:
+          "We use a combination of rigorous task decomposition, state-of-the-art frameworks, and essential Human-in-the-Loop (HITL) protocols to ensure reliability and quality control.",
+      },
+      {
+        title: 'Can these agents work with our existing software?',
+        description:
+          'Yes. We design agents to interact with your existing software suite, APIs, and databases, augmenting your current technology investments.',
+      },
+      {
+        title: 'Is our data secure when using these agents?',
+        description:
+          'Security is paramount. Agents are designed with strict access controls and operate within your defined security parameters, ensuring your data remains protected.',
+      },
+    ]}
+  />
+
+  <!-- Call to Action Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Deploy Your Digital Workforce',
+        href: '/contact',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Ready to Go Beyond Automation?
+    </Fragment>
+    <Fragment slot="subtitle">
+      Let's discuss how a custom-built digital workforce can revolutionize your operations. Contact us today for a free consultation.
+    </Fragment>
+  </CallToAction>
 </Layout>

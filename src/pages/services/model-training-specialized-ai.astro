@@ -1,7 +1,11 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Model Training & Specialized AI — rebel-state',
@@ -10,25 +14,170 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Hero
+  <!-- Hero Section -->
+  <HeroText
     tagline="Services"
     title="Model Training & Specialized AI"
-    subtitle="We specialize in tailoring models to your domain data, improving accuracy and reducing hallucinations."
-    actions={[{ text: 'Contact us', href: '/contact', variant: 'primary' }]}
-    image={{ src: '~/assets/images/change-01.webp', alt: 'Model training' }}
+    subtitle="Move from generalized intelligence to vertical expertise. We sharpen powerful foundation models into precision instruments trained on your proprietary data."
   />
-  <Content
-    image={{ src: '~/assets/images/hero-image.png', alt: 'Curating data' }}
+
+  <!-- Features Section -->
+  <Features3
+    title="Your Data, Your AI"
+    subtitle="We build AI that understands the nuanced, specific knowledge of your industry, your company history, and your unique methodology, giving you an unparalleled competitive edge."
+    columns={3}
     items={[
       {
-        description: `In the race for AI dominance, the winners will be those who move away from "Generalized Intelligence" toward "Vertical Expertise." While foundation models like GPT-4 are impressive, they lack the specific, nuanced knowledge of your industry, your company’s internal history, and your proprietary methodology. rebel-state specializes in Model Training and Specialized AI, taking the raw power of Large Language Models (LLMs) and sharpening them into precision instruments for your specific business.`,
+        icon: 'tabler:target',
+        title: 'Vertical AI Expertise',
+        description:
+          'General models have broad knowledge; we build models with deep expertise in your specific domain, from maritime law to internal coding standards.',
       },
       {
-        description: `Our process centers on Data Sovereignty and Domain Adaptation. We help you identify and curate your "Hidden Knowledge"—the thousands of documents, emails, Slack logs, and project files that contain the true DNA of your organization. We then use this data to fine-tune models or implement advanced Retrieval-Augmented Generation (RAG) architectures. This ensures that the AI's responses are grounded in your reality, minimizing "hallucinations" and maximizing utility. We are experts in techniques like LoRA (Low-Rank Adaptation) and QLoRA, which allow us to train high-performing models efficiently without the astronomical costs traditionally associated with AI development.`,
+        icon: 'tabler:shield-check',
+        title: 'Data Sovereignty & Privacy',
+        description:
+          'Your data never leaves your control. We deploy models in private, local, or VPC-hosted instances, eliminating the security risks of public AI.',
       },
       {
-        description: `Security is our primary directive. Many businesses are hesitant to use AI because they fear their data will be used to train public models. rebel-state solves this by deploying private, local, or VPC-hosted instances where your data never leaves your controlled environment. We don't just train the model; we optimize its "Context Window" and performance metrics to ensure it is fast, cost-effective, and accurate. Whether you need a model that understands the intricacies of maritime law, the specific coding standards of your engineering team, or the medical nuances of a specialized clinic, rebel-state builds the "Brain" that powers your organization’s future.`,
+        icon: 'tabler:refresh',
+        title: 'Efficient Fine-Tuning',
+        description:
+          'Using advanced techniques like LoRA and QLoRA, we train high-performing models efficiently, avoiding the astronomical costs of traditional AI development.',
+      },
+      {
+        icon: 'tabler:file-text',
+        title: 'Retrieval-Augmented Generation (RAG)',
+        description:
+          'Ground your AI in reality. Our RAG architectures ensure responses are based on your curated knowledge base, dramatically reducing hallucinations.',
+      },
+      {
+        icon: 'tabler:brain',
+        title: 'Optimized for Performance',
+        description:
+          'We don’t just train the model; we optimize its context window and performance metrics to ensure it is fast, accurate, and cost-effective.',
+      },
+      {
+        icon: 'tabler:ad',
+        title: 'Minimize Hallucinations',
+        description:
+          'By training on your "Hidden Knowledge," we ensure the AI’s responses are grounded in your reality, not confabulating plausible-sounding nonsense.',
       },
     ]}
   />
+
+  <!-- Problem & Solution Section -->
+  <Content
+    isReversed
+    title="Is Generic AI Holding You Back?"
+    subtitle="Foundation models are impressive, but they lack the specific knowledge your business runs on. They hallucinate, expose your data, and fail to grasp the nuances of your domain."
+    items={[
+      {
+        title: 'Lack of Domain Knowledge',
+        description:
+          'A general-purpose AI doesn’t understand your industry jargon, internal processes, or proprietary data, leading to vague and useless output.',
+      },
+      {
+        title: 'Critical AI Hallucinations',
+        description:
+          'When an AI doesn’t know an answer, it often makes one up. This is a critical risk when you need factual, reliable information for decision-making.',
+      },
+      {
+        title: 'Data Security Risks',
+        description:
+          'Using public AI services means sending your sensitive, proprietary data to third-party companies, creating an unacceptable security and privacy risk.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/crypto.jpg',
+      alt: 'Stylized data brain',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">An AI That Thinks Like You</h3>
+      <p>
+        We transform your "Hidden Knowledge"—the thousands of documents, emails, and project files that define your
+        business—into a specialized AI. This is not just another tool; it's a new, proprietary intelligence, a "brain"
+        for your organization that provides precise, secure, and contextually-aware insights.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- How It Works Section -->
+  <Steps
+    title="Our Model Specialization Process"
+    subtitle="We follow a rigorous, security-first methodology to build and deploy a specialized AI brain for your organization."
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">"Hidden Knowledge" Curation</span>',
+        description:
+          "We help you identify, audit, and curate the proprietary data that contains your organization's true operational DNA, preparing it for AI consumption.",
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Architecture Selection</span>',
+        description:
+          'Based on your goals and data, we determine the best path forward—whether it’s efficient fine-tuning (LoRA/QLoRA) or an advanced RAG architecture.',
+        icon: 'tabler:git-fork',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Efficient Training & Optimization</span>',
+        description:
+          'We train your model, rigorously testing for accuracy, speed, and cost-effectiveness while systematically reducing hallucinations.',
+        icon: 'tabler:activity',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Secure Deployment & Integration</span>',
+        description:
+          'We deploy the specialized model into a secure, sovereign environment (private cloud or on-prem) and integrate it with your existing workflows.',
+        icon: 'tabler:lock',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/change-01.webp',
+      alt: 'Model training',
+    }}
+  />
+
+  <!-- FAQs Section -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Common questions about our model training and specialized AI services."
+    columns={1}
+    items={[
+      {
+        title: 'What is the difference between fine-tuning and RAG?',
+        description:
+          'Fine-tuning teaches the model a new skill or style, while RAG gives it access to a specific body of knowledge to reference. We help you choose the right approach for your goal and budget.',
+      },
+      {
+        title: 'What is Data Sovereignty?',
+        description:
+          'It means you have complete and exclusive control over your data. By deploying models in your private environment, you ensure your proprietary information is never exposed or used by third parties.',
+      },
+      {
+        title: 'Is this only for large enterprises?',
+        description:
+          'Not at all. With modern, efficient techniques like LoRA/QLoRA and RAG, creating a specialized AI model is more accessible and cost-effective than ever before.',
+      },
+    ]}
+  />
+
+  <!-- Call to Action Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Build Your AI Brain',
+        href: '/contact',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Ready to Unlock Your Proprietary Intelligence? </Fragment>
+    <Fragment slot="subtitle">
+      Let's discuss how a specialized AI model can become your most powerful competitive advantage. Contact us for a
+      free consultation.
+    </Fragment>
+  </CallToAction>
 </Layout>

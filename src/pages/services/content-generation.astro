@@ -1,7 +1,11 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Content Generation — rebel-state',
@@ -10,26 +14,164 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Hero
+  <!-- Hero Section -->
+  <HeroText
     tagline="Services"
     title="Content Generation"
-    subtitle="Programmatic, brand-aligned content production at scale using curated knowledge bases and data.">
-    <Fragment slot="subtitle"></Fragment>
-    <Fragment slot="subtitle"></Fragment>
-    image={{ src: '~/assets/images/screen-glasses.jpg', alt: 'Content creation' }}
-  </Hero>
-  <Content
-    image={{ src: '~/assets/images/change-01.webp', alt: 'Content workflow' }}
+    subtitle="Programmatic, brand-aligned content production at scale using curated knowledge bases and data."
+  />
+
+  <!-- Features Section -->
+  <Features3
+    title="A Scalable Content Engine"
+    subtitle="Break free from the 'sea of sameness.' We build programmatic content engines that produce high-fidelity, brand-aligned content that sounds like you, not like a generic AI."
+    columns={3}
     items={[
       {
-        description: `The demand for content in the digital age is insatiable, yet the quality of most AI-generated content is deteriorating into a "sea of sameness." rebel-state’s Content Generation service is designed to break this cycle. We provide automated, high-fidelity content production that doesn't just sound human—it sounds like your brand. We achieve this by building custom LLM knowledge bases that act as a "Brand Bible" for the AI, ensuring every word produced aligns with your specific objectives, tone, and strategic intent.`,
+        icon: 'tabler:book',
+        title: 'Custom Knowledge Bases',
+        description: 'We build a "Brand Bible" for your AI, ensuring every word produced aligns with your specific objectives, tone, and strategic intent.',
       },
       {
-        description: `Our approach to content generation is programmatic and data-driven. We don't just generate blog posts; we build engines that produce multi-channel content ecosystems. For example, a single custom knowledge base built on a company’s new product whitepaper can be used to autonomously generate technical documentation, LinkedIn thought-leadership posts, email marketing sequences, and internal training summaries. This "One-to-Many" content strategy ensures absolute consistency across all touchpoints, eliminating the brand drift that often occurs when multiple human writers or generic AI tools are used.`,
+        icon: 'tabler:chart-infographic',
+        title: '"One-to-Many" Strategy',
+        description: 'A single source of truth can autonomously generate technical docs, social media posts, email sequences, and internal training, ensuring brand consistency.',
       },
       {
-        description: `Furthermore, we specialize in Knowledge-Backed Synthesis. By connecting your content generation engine to your real-time business data, we can produce content that is hyper-current. Imagine a financial services firm that can generate personalized, data-backed market reports for 10,000 different clients simultaneously, each reflecting the specific assets in the client's portfolio. This level of personalization at scale was previously impossible. At rebel-state, we blend the art of storytelling with the science of data, creating content that engages, informs, and converts, all while being produced at the speed of silicon.`,
+        icon: 'tabler:alert-triangle',
+        title: 'Knowledge-Backed Synthesis',
+        description: 'Connect your content engine to real-time business data to produce hyper-current content that is personalized and contextually aware.',
+      },
+       {
+        icon: 'tabler:volume',
+        title: 'Consistent Brand Voice',
+        description: 'Eliminate brand drift that occurs with multiple writers or generic AI tools. Your unique voice is encoded into the content engine.',
+      },
+       {
+        icon: 'tabler:arrows-right-left',
+        title: 'Multi-Channel Ecosystems',
+        description: 'We don’t just write blog posts; we build engines that produce and manage a cohesive content ecosystem across all your digital touchpoints.',
+      },
+       {
+        icon: 'tabler:git-fork',
+        title: 'Programmatic & Data-Driven',
+        description: 'Blend the art of storytelling with the science of data. Create content that engages, informs, and converts at the speed of silicon.',
       },
     ]}
   />
+
+  <!-- Problem & Solution Section -->
+  <Content
+    isReversed
+    title="Is Your Content Drowning in a 'Sea of Sameness'?"
+    subtitle="The demand for digital content is insatiable, yet the quality of most AI-generated content is rapidly deteriorating. It lacks soul, strategy, and brand identity."
+    items={[
+        {
+            title: 'Generic, Soulless Content',
+            description:
+            'Most AI content tools produce generic, uninspired text that fails to connect with your audience and sounds just like your competitors.',
+        },
+        {
+            title: 'Brand Inconsistency',
+            description:
+            'Using multiple writers or tools leads to brand drift. Your messaging becomes fragmented, and your unique voice is lost in the noise.',
+        },
+        {
+            title: 'Inability to Scale Quality',
+            description:
+            'Manually creating high-quality, consistent content is slow and expensive. Scaling production often means sacrificing the quality that sets you apart.',
+        },
+    ]}
+    image={{
+      src: '~/assets/images/screen-glasses.jpg',
+      alt: 'Content creation',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Your Brand Voice, Amplified</h3>
+     <p>Our Content Generation service breaks this cycle. We provide an automated, high-fidelity content engine that doesn't just sound human—it sounds like your brand. We blend the art of storytelling with the science of data to create content that engages, informs, and converts.</p>
+    </Fragment>
+  </Content>
+
+
+  <!-- How It Works Section -->
+  <Steps
+    title="Our Content Engine Roadmap"
+    subtitle="We follow a structured process to build a content generation system that becomes a core asset for your business."
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Build the "Brand Bible"</span>',
+        description:
+          "We begin by creating a custom LLM knowledge base that deeply understands your brand's voice, style, and strategic goals. This becomes the foundation for all content.",
+        icon: 'tabler:book',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Develop the Content Engine</span>',
+        description:
+          'Next, we build the programmatic engine, defining the workflows and "One-to-Many" strategies for generating a multi-channel content ecosystem from a single source of truth.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Integrate Real-Time Data</span>',
+        description:
+          "We connect your engine to real-time business data sources for Knowledge-Backed Synthesis, allowing for the creation of hyper-current and personalized content at scale.",
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Deploy, Generate & Optimize</span>',
+        description:
+          'Once live, the engine begins producing content. We continuously monitor its output and optimize the system for quality, relevance, and performance.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/change-01.webp',
+      alt: 'Content workflow',
+    }}
+  />
+
+
+
+  <!-- FAQs Section -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Common questions about our programmatic content generation services."
+    columns={1}
+    items={[
+      {
+        title: 'Is this just another GPT wrapper?',
+        description:
+          "No. We build custom systems that use a 'Brand Bible' to ensure content is aligned with your unique voice and strategy. It's about quality and consistency, not just quantity.",
+      },
+      {
+        title: 'Can you generate technical content?',
+        description:
+          "Yes. Our 'One-to-Many' approach is perfect for this. We can use a single whitepaper or technical document as a source to generate documentation, tutorials, and more.",
+      },
+      {
+        title: 'How do you ensure the content is accurate?',
+        description:
+          'For services requiring real-time data, we use Knowledge-Backed Synthesis, which connects the content engine to your verified data sources to ensure accuracy and relevance.',
+      },
+    ]}
+  />
+
+  <!-- Call to Action Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Automate Your Content',
+        href: '/contact',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Ready to Scale Your Brand's Voice?
+    </Fragment>
+    <Fragment slot="subtitle">
+      Let's discuss how a programmatic content engine can transform your content strategy. Contact us today for a free consultation.
+    </Fragment>
+  </CallToAction>
 </Layout>

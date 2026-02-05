@@ -1,7 +1,11 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Business Intelligence & AI Integration — rebel-state',
@@ -10,25 +14,164 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Hero
+  <!-- Hero Section -->
+  <HeroText
     tagline="Services"
     title="Business Intelligence & AI Integration"
-    subtitle="Transform fragmented data into a unified System of Intelligence and embed AI into decision workflows."
-    actions={[{ text: 'Contact us', href: '/contact', variant: 'primary' }]}
-    image={{ src: '~/assets/images/new-matrix.jpg', alt: 'Data analytics visualization' }}
+    subtitle="Transform fragmented data into a unified System of Intelligence and embed AI into your decision workflows."
   />
-  <Content
-    image={{ src: '~/assets/images/hero-image.png', alt: 'Data pipeline' }}
+
+  <!-- Features Section -->
+  <Features3
+    title="A unified System of Intelligence"
+    subtitle="We don't just provide charts; we provide a system of intelligence that actively informs your next move, turning raw data into strategic foresight."
+    columns={3}
     items={[
       {
-        description: `Data is often described as the new oil, but raw data, like crude oil, is useless until it is refined. Most businesses are currently drowning in data but starving for insights. rebel-state’s Business Intelligence (BI) & AI Integration service transforms your fragmented data streams into a coherent, strategic narrative. We don't just provide charts; we provide a "System of Intelligence" that actively informs your next move.`,
+        icon: 'tabler:layout-dashboard',
+        title: 'Unified Dashboards',
+        description: 'Create a "Single Source of Truth" where data from sales, marketing, and operations are unified into a real-time ecosystem.',
       },
       {
-        description: `The core of our approach is the seamless integration of Artificial Intelligence into the very fabric of your decision-making process. Traditional BI looks backward—it tells you what happened last quarter. Our AI-enhanced BI looks forward. By implementing predictive modeling and sentiment analysis, we help businesses anticipate market shifts, identify emerging customer needs, and detect internal inefficiencies before they become liabilities. We specialize in creating "Single Source of Truth" environments where data from sales, marketing, operations, and finance are unified into a real-time, interactive ecosystem.`,
+        icon: 'tabler:crystal-ball',
+        title: 'Predictive Modeling',
+        description: 'Anticipate market shifts and identify emerging customer needs with AI-enhanced BI that looks forward, not just backward.',
       },
       {
-        description: `Integration is the most difficult hurdle in the AI era. Many companies attempt to "bolt on" AI as a secondary feature, leading to fragmented user experiences and data silos. rebel-state ensures that AI is baked into your workflow. We leverage advanced ETL (Extract, Transform, Load) processes to ensure your data is clean, structured, and ready for analysis. From there, we deploy custom-built dashboards and alerting systems that notify stakeholders of critical anomalies or opportunities as they arise. This proactive stance moves your leadership from reactive firefighting to strategic foresight. With rebel-state, your business intelligence becomes a living, breathing asset that grows more accurate and more valuable with every byte of data it processes.`,
+        icon: 'tabler:refresh',
+        title: 'Advanced ETL Processes',
+        description: 'We ensure your data is clean, structured, and ready for analysis using robust Extract, Transform, Load (ETL) pipelines.',
+      },
+       {
+        icon: 'tabler:settings',
+        title: 'AI Workflow Integration',
+        description: 'Unlike "bolt-on" solutions, we bake AI into the very fabric of your decision-making process for seamless operation.',
+      },
+       {
+        icon: 'tabler:alert-triangle',
+        title: 'Proactive Alerting',
+        description: 'Custom-built systems notify stakeholders of critical anomalies or opportunities as they arise, enabling proactive responses.',
+      },
+       {
+        icon: 'tabler:microscope',
+        title: 'Sentiment Analysis',
+        description: 'Go beyond numbers to understand customer feelings and market trends, adding a qualitative layer to your quantitative data.',
       },
     ]}
   />
+
+  <!-- Problem & Solution Section -->
+  <Content
+    isReversed
+    title="Are you drowning in data but starving for insights?"
+    subtitle="Most businesses have more data than they know what to do with. Raw data, like crude oil, is useless until it is refined."
+    items={[
+        {
+            title: 'Data Fragmentation',
+            description:
+            'Information is scattered across different departments and systems (sales, marketing, finance), making it impossible to get a clear picture of the business.',
+        },
+        {
+            title: 'Reactive Decision-Making',
+            description:
+            'Traditional BI looks backward, telling you what happened last quarter. This leaves you reacting to problems instead of anticipating opportunities.',
+        },
+        {
+            title: 'Inefficient AI Implementation',
+            description:
+            'Attempting to "bolt on" AI features results in clunky workflows, data silos, and a failure to realize the true potential of artificial intelligence.',
+        },
+    ]}
+    image={{
+      src: '~/assets/images/new-matrix.jpg',
+      alt: 'Abstract data visualization',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">From Data Chaos to Strategic Clarity</h3>
+     <p>Our BI & AI Integration service transforms your fragmented data streams into a coherent, strategic narrative. We build a living, breathing asset that grows more accurate and valuable with every byte of data it processes, moving your leadership from reactive firefighting to strategic foresight.</p>
+    </Fragment>
+  </Content>
+
+
+  <!-- How It Works Section -->
+  <Steps
+    title="Our Integration Roadmap"
+    subtitle="We follow a proven methodology to ensure your transition to an intelligent, data-driven organization is seamless and effective."
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Data Unification & ETL</span>',
+        description:
+          "We start by connecting your disparate data sources and implementing advanced ETL (Extract, Transform, Load) processes to create a clean, structured, and unified dataset.",
+        icon: 'tabler:git-fork',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Predictive Model Deployment</span>',
+        description:
+          'Next, we deploy custom-built predictive models and sentiment analysis tools, turning your historical data into a forward-looking strategic asset.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Dashboard & Workflow Integration</span>',
+        description:
+          "We build real-time, interactive dashboards and embed AI directly into your team's workflows, ensuring the insights are accessible and actionable.",
+        icon: 'tabler:app-window',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Optimization & Proactive Alerting</span>',
+        description:
+          'Finally, we establish alerting systems for critical opportunities and continuously optimize the system, ensuring it evolves with your business.',
+        icon: 'tabler:report-analytics',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/multi-crypto.jpg',
+      alt: 'Abstract network visualization',
+    }}
+  />
+
+
+
+  <!-- FAQs Section -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Have questions? We have answers. Here are some common inquiries about our Business Intelligence & AI Integration services."
+    columns={1}
+    items={[
+      {
+        title: 'Our data is a mess. Can you still help?',
+        description:
+          "Absolutely. In fact, that's our specialty. Our robust ETL processes are designed to clean, structure, and unify even the most fragmented data sources.",
+      },
+      {
+        title: 'How is this different from a standard BI tool?',
+        description:
+          "Standard tools tell you what happened. Our solution tells you what's next. By integrating predictive AI, we move you from historical reporting to forward-looking strategy.",
+      },
+      {
+        title: 'Will our team be able to use these new tools?',
+        description:
+          'Yes. We focus on user-centric design and embed our tools directly into your existing workflows to ensure high adoption rates and minimal disruption.',
+      },
+    ]}
+  />
+
+  <!-- Call to Action Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Schedule a Consultation',
+        href: '/contact',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Ready to Unlock Your Data's Potential?
+    </Fragment>
+    <Fragment slot="subtitle">
+      Let's discuss how our BI & AI Integration service can create a system of intelligence for your business. Contact us for a free consultation.
+    </Fragment>
+  </CallToAction>
 </Layout>
