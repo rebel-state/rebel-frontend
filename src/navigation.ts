@@ -1,6 +1,7 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 import fs from 'fs';
 import path from 'path';
+import type { NavLink } from './types';
 
 // Helper to detect whether a page exists under src/pages for a given href
 const pageExists = (href: string) => {
@@ -27,7 +28,6 @@ const makeLink = (text: string, href: string) => ({ text, href: getPermalink(hre
 
 export const headerData = {
   links: [
-    makeLink('Home', '/'),
     {
       text: 'About',
       links: [
@@ -47,8 +47,17 @@ export const headerData = {
         makeLink('Tutorials', '/blog'),
       ],
     },
+    {
+      text: 'Products',
+      links: [
+        makeLink('Proton for Business', '/products/proton-business'),
+        makeLink('Proton Mail', '/products/proton-mail'),
+        makeLink('Proton VPN', '/products/proton-vpn'),
+        makeLink('Proton Pass', '/products/proton-pass'),
+        makeLink('Proton Drive', '/products/proton-drive'),
+      ],
+    },
     // Members link - show but disabled if no page
-    { text: 'Products', href: '#', disabled: true },
     { text: 'Projects', href: '#', disabled: true },
     { text: 'Members', href: '#', disabled: true },
   ],
@@ -89,13 +98,17 @@ export const footerData = {
       title: 'Company',
       links: ((): Array<{ text: string; href: string; disabled?: boolean }> => {
         const about = headerData.links.find((l) => l.text === 'About');
-        if (!about || !Array.isArray((about as any).links)) {
+        if (!about || !Array.isArray(about.links)) {
           return [
             { text: 'About', href: getPermalink('/about') },
             { text: 'Blog', href: getBlogPermalink() },
           ];
         }
-        return (about as any).links.map((item: any) => ({ text: item.text, href: item.href, disabled: item.disabled }));
+        return (about as { links: NavLink[] }).links.map((item) => ({
+          text: item.text,
+          href: item.href,
+          disabled: item.disabled,
+        }));
       })(),
     },
   ],
