@@ -1,7 +1,11 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Custom Tooling & Automation — rebel-state',
@@ -10,25 +14,164 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Hero
+  <!-- Hero Section -->
+  <HeroText
     tagline="Services"
     title="Custom Tooling & Automation"
-    subtitle="Eliminate manual bottlenecks with bespoke tooling and scalable automation built for your workflows."
-    actions={[{ text: 'Contact us', href: '/contact', variant: 'primary' }]}
-    image={{ src: '~/assets/images/screen-glasses.jpg', alt: 'Engineers building tooling' }}
+    subtitle="Stop forcing your workflows into off-the-shelf software. We build bespoke digital infrastructure and automation that serves your business, not the other way around."
   />
-  <Content
-    image={{ src: '~/assets/images/do-something-great.jpg', alt: 'Automation workflow' }}
+
+  <!-- Features Section -->
+  <Features3
+    title="Achieve Operational Sovereignty"
+    subtitle="Your competitive advantage lies in your unique processes. We build the tools that protect and scale that advantage, eliminating reliance on bloated, one-size-fits-all SaaS."
+    columns={3}
     items={[
       {
-        description: `In the modern enterprise landscape, "off-the-shelf" is often synonymous with "bottleneck." While SaaS platforms offer quick starts, they frequently force businesses to warp their unique workflows to fit the rigid architecture of the software. At rebel-state, we believe the software should serve the business, not the other way around. Our Custom Tooling & Automation service is built on the philosophy of Operational Sovereignty—the idea that a company’s most valuable competitive advantages are found in its specific, proprietary processes.`,
+        icon: 'tabler:box',
+        title: 'Bespoke Digital Infrastructure',
+        description: 'From custom middleware connecting legacy systems to modern APIs, we build the digital backbone your business needs to operate efficiently.',
       },
       {
-        description: `The hidden cost of manual labor is not just the hourly wage; it is the cognitive load and the inevitable human error that slows down scaling. We begin our process with a deep-tissue audit of your current stack. We look for the "glue work"—those tedious tasks where employees are moving data from one window to another, or manually reconciling reports. By building bespoke digital infrastructure, we eliminate these friction points. Whether it’s a custom middleware that connects legacy ERP systems to modern cloud environments or a specialized internal dashboard that streamlines project management, our tools are designed for high performance and zero bloat.`,
+        icon: 'tabler:report-analytics',
+        title: 'Actionable Internal Dashboards',
+        description: 'Go beyond vanity metrics. We create specialized dashboards that streamline project management and provide real-time, actionable intelligence.',
       },
       {
-        description: `Automation at rebel-state goes beyond simple "If This Then That" logic. We architect robust, scalable systems using modern languages and frameworks that ensure longevity. We prioritize modularity; as your business grows, your tools evolve with you. We handle everything from API development and integration to the creation of standalone desktop or web applications that solve specific industry challenges. By automating the mundane, we allow your human capital to focus on what humans do best: strategy, creativity, and high-level problem-solving. In a world where speed is the primary currency, our custom tools act as a force multiplier for your entire organization.`,
+        icon: 'tabler:toggle-left',
+        title: 'Eliminate "Glue Work"',
+        description: 'We identify and automate the tedious, manual tasks of moving data between systems, freeing your team from cognitive load and human error.',
+      },
+       {
+        icon: 'tabler:feather',
+        title: 'High Performance, Zero Bloat',
+        description: 'Our tools are designed for speed and purpose. We build exactly what you need without the unnecessary features that slow you down.',
+      },
+       {
+        icon: 'tabler:arrows-up',
+        title: 'Modular & Scalable by Design',
+        description: 'We architect robust, modular systems using modern frameworks. As your business grows, your custom tools evolve with you.',
+      },
+       {
+        icon: 'tabler:api',
+        title: 'API Development & Integration',
+        description: 'We handle everything from building new APIs to integrating disparate systems, ensuring a seamless flow of data across your entire stack.',
       },
     ]}
   />
+
+  <!-- Problem & Solution Section -->
+  <Content
+    isReversed
+    title="Is Your Software Working Against You?"
+    subtitle="Off-the-shelf SaaS forces you to adapt your unique workflows to its rigid architecture. This creates friction, manual workarounds, and hidden costs that stifle growth."
+    items={[
+        {
+            title: 'Operational Bottlenecks',
+            description:
+            'Your team is stuck in "glue work"—manually copying data, reconciling reports, and bridging gaps between inflexible tools.',
+        },
+        {
+            title: 'Loss of Competitive Edge',
+            description:
+            'By using the same tools as everyone else, you are eroding your unique operational advantages that set you apart from the competition.',
+        },
+        {
+            title: 'Scaling Friction',
+            description:
+            'The hidden costs of manual processes and human error become a major drag on growth. You can’t scale effectively when your tools create more work.',
+        },
+    ]}
+    image={{
+      src: '~/assets/images/do-something-great.jpg',
+      alt: 'Automation workflow',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Software That Serves You</h3>
+     <p>We believe your software should be a force multiplier for your team, not a source of friction. Our service gives you Operational Sovereignty by building custom tooling and automation that is tailor-made for your proprietary processes. We automate the mundane so your team can focus on what they do best: winning.</p>
+    </Fragment>
+  </Content>
+
+
+  <!-- How It Works Section -->
+  <Steps
+    title="Our Development Process"
+    subtitle="We follow a transparent and iterative process to ensure the final product is a perfect fit for your operational needs."
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Deep-Tissue Stack Audit</span>',
+        description:
+          "We begin with a thorough audit of your current workflows and tech stack to identify the precise points of friction and opportunities for automation.",
+        icon: 'tabler:file-search',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Architectural Design</span>',
+        description:
+          'We design a robust and scalable architecture for your custom tool, selecting the optimal modern tech stack to ensure longevity and performance.',
+        icon: 'tabler:artboard',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Iterative Development & Integration</span>',
+        description:
+          "We build your tool in agile sprints with continuous feedback, integrating it seamlessly with your existing systems to minimize disruption.",
+        icon: 'tabler:cube',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Deployment & Ongoing Support</span>',
+        description:
+          'We manage the full deployment process and provide comprehensive training and ongoing support to ensure your team gets the most out of their new tool.',
+        icon: 'tabler:lifebuoy',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/screen-glasses.jpg',
+      alt: 'Engineers building tooling',
+    }}
+  />
+
+
+
+  <!-- FAQs Section -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Common questions about our custom tooling and automation services."
+    columns={1}
+    items={[
+      {
+        title: 'Is building custom tooling expensive?',
+        description:
+          "It's an investment with a high ROI. When you factor in the hidden costs of manual labor, human error, and operational bottlenecks from ill-fitting software, custom tooling often pays for itself quickly.",
+      },
+      {
+        title: 'How long does it take to build a custom tool?',
+        description:
+          'Timelines vary based on complexity, but we prioritize rapid, iterative development. We aim to deliver a minimum viable product (MVP) quickly to start generating value.',
+      },
+      {
+        title: 'What if our needs change in the future?',
+        description:
+          'We build for change. Our modular architecture ensures that your custom tools can evolve and scale right alongside your business.',
+      },
+    ]}
+  />
+
+  <!-- Call to Action Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Build Your Force Multiplier',
+        href: '/contact',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Ready for Software That Works For You?
+    </Fragment>
+    <Fragment slot="subtitle">
+      Let's discuss how bespoke tooling can eliminate friction and unlock new levels of efficiency for your business. Contact us for a free consultation.
+    </Fragment>
+  </CallToAction>
 </Layout>

@@ -1,34 +1,184 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Educational Content & Tools — rebel-state',
-  description: 'Interactive courses, corporate training, and tools built from your real data to accelerate adoption and learning.',
+  description:
+    'Interactive courses, corporate training, and tools built from your real data to accelerate adoption and learning.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <Hero
+  <!-- Hero Section -->
+  <HeroText
     tagline="Services"
     title="Educational Content & Tools"
-    subtitle="Project-based training and corporate courses that turn your project history into actionable learning paths."
-    actions={[{ text: 'Contact us', href: '/contact', variant: 'primary' }]}
-    image={{ src: '~/assets/images/red-team.jpg', alt: 'Team learning together' }}
+    subtitle="Turn your internal knowledge and project history into a competitive advantage with custom corporate training and interactive learning tools."
   />
-  <Content
-    image={{ src: '~/assets/images/hero-image.png', alt: 'Tutorial' }}
+
+  <!-- Features Section -->
+  <Features3
+    title="Education That's Actually Engaging"
+    subtitle="We build learning experiences that are 100% relevant to your team's daily reality, moving beyond passive, generic content to active, project-based mastery."
+    columns={3}
     items={[
       {
-        description: `At the heart of rebel-state is a commitment to the "Rebel" philosophy: that knowledge should be shared, privacy should be protected, and the "Black Box" of technology should be opened. Our Educational Content & Tools section is not just about teaching; it’s about Empowerment. We recognize that the fastest way to fail in the AI era is to have a workforce that is intimidated by or ignorant of the tools they are expected to use.`,
+        icon: 'tabler:school',
+        title: 'Custom Corporate Courses',
+        description:
+          'We use your actual project histories and internal data to create onboarding and training that is immediately relevant and effective.',
       },
       {
-        description: `Our educational ecosystem is split into three distinct tiers. First, we provide community-facing content: high-level news, deep-dive tutorials, and "best practices" guides that focus on privacy-first technology and clean code. We believe that by raising the collective floor of technical literacy, we create a better environment for everyone. Second, we have a rigorous roadmap of proprietary apps and services—tools designed to make the learning process interactive and intuitive, moving away from passive video watching toward active, project-based mastery.`,
+        icon: 'tabler:device-gamepad',
+        title: 'Real-World Scenario Simulation',
+        description:
+          'AI-powered simulations allow staff to practice high-stakes technical challenges or client interactions in a safe, repeatable environment.',
       },
       {
-        description: `The third, and perhaps most impactful, tier is our Custom Corporate Courses. Generic onboarding and "Professional Development" courses are often ignored because they feel irrelevant to the employee’s daily reality. rebel-state changes this by creating training platforms built on your company-specific data and scenarios. We take your actual project histories, your internal coding standards, and your specific customer personas to create an onboarding experience that is 100% relevant. We use AI to simulate "Real-World Scenarios," allowing staff to practice high-stakes interactions or technical challenges in a safe, simulated environment. This reduces "Time to Productivity" for new hires and ensures your veteran staff are constantly upskilling in the most efficient way possible. With rebel-state, education is not a checkbox—it’s a competitive advantage.`,
+        icon: 'tabler:history',
+        title: 'Accelerated Time-to-Productivity',
+        description:
+          'New hires become effective team members faster when their training is a direct reflection of the work they will actually be doing.',
+      },
+      {
+        icon: 'tabler:apps',
+        title: 'Interactive Learning Apps',
+        description:
+          'We are building a suite of proprietary apps designed to make learning intuitive and active, moving away from passive video tutorials.',
+      },
+      {
+        icon: 'tabler:user-check',
+        title: 'Privacy-First Philosophy',
+        description:
+          'All our educational content emphasizes a privacy-first approach to technology, ensuring your team learns best practices from day one.',
+      },
+      {
+        icon: 'tabler:certificate',
+        title: 'Project-Based Mastery',
+        description:
+          'True understanding comes from doing. Our educational programs are built around hands-on projects that build real-world skills.',
       },
     ]}
   />
+
+  <!-- Problem & Solution Section -->
+  <Content
+    isReversed
+    title="Is Your Training Falling on Deaf Ears?"
+    subtitle="Generic professional development courses are often ignored because they are disconnected from the employee's daily work. This leads to wasted resources and a workforce unprepared for new challenges."
+    items={[
+      {
+        title: 'Irrelevant Content',
+        description:
+          'Off-the-shelf training doesn’t use your terminology, your data, or your workflows, so employees mentally check out.',
+      },
+      {
+        title: 'Passive & Forgettable',
+        description:
+          'Watching hours of video tutorials leads to low knowledge retention. Without active participation, learning is superficial at best.',
+      },
+      {
+        title: 'Fear of New Technology',
+        description:
+          'A workforce that is intimidated by or ignorant of the tools they are expected to use is a massive barrier to innovation and growth.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/red-team.jpg',
+      alt: 'Team learning together',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Turn Knowledge Into Power</h3>
+      <p>
+        Our educational services transform training from a checkbox item into a strategic advantage. By creating custom
+        courses and a tool that is built from your own data and project histories, we make learning hyper-relevant and
+        engaging. We empower your workforce to master new technologies and adopt best practices with confidence.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- How It Works Section -->
+  <Steps
+    title="Our Corporate Training Blueprint"
+    subtitle="We have a structured process for turning your internal expertise into a scalable and effective educational program."
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Curriculum Discovery</span>',
+        description:
+          'We analyze your project histories, internal documentation, and coding standards to design a curriculum that is 100% relevant to your business.',
+        icon: 'tabler:file-text',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Interactive Content Development</span>',
+        description:
+          'We create engaging, project-based learning modules and interactive tools that move beyond passive observation to active skill development.',
+        icon: 'tabler:puzzle',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">AI Scenario Simulation</span>',
+        description:
+          'We build safe, simulated environments where your team can practice complex technical or interpersonal skills using AI-driven, real-world scenarios.',
+        icon: 'tabler:device-desktop',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Platform Deployment & Onboarding</span>',
+        description:
+          'We deploy the custom training platform and work with your teams to ensure smooth onboarding, maximizing adoption and educational ROI.',
+        icon: 'tabler:player-play',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/hero-image.png',
+      alt: 'Tutorial',
+    }}
+  />
+
+  <!-- FAQs Section -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Common questions about our educational content and custom corporate training."
+    columns={1}
+    items={[
+      {
+        title: 'What makes your training different?',
+        description:
+          "Relevance. We don't do generic. We build your courses from your data, your projects, and your workflows. This makes the learning process immediately applicable and far more effective.",
+      },
+      {
+        title: 'Can you create content for non-technical teams?',
+        description:
+          'Absolutely. Our AI-powered scenario simulations are perfect for sales, customer support, and leadership training. We can model difficult client conversations or internal management challenges.',
+      },
+      {
+        title: 'What is the "Rebel" philosophy?',
+        description:
+          'It is our commitment to sharing knowledge, protecting privacy, and opening the "black box" of technology. We believe empowerment through education creates a better and more equitable tech landscape.',
+      },
+    ]}
+  />
+
+  <!-- Call to Action Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Build Your Academy',
+        href: '/contact',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Ready to Upskill Your Workforce? </Fragment>
+    <Fragment slot="subtitle">
+      Let's discuss how a custom corporate training program can become a strategic advantage for your company. Contact
+      us for a free consultation.
+    </Fragment>
+  </CallToAction>
 </Layout>
