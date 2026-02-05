@@ -33,8 +33,6 @@ export const headerData = {
       links: [
         makeLink('About', '/about'),
         makeLink('Services', '/services'),
-        makeLink('Projects', '/projects'),
-        makeLink('Products', '/products'),
         makeLink('Contact', '/contact-us'),
         makeLink('Terms', '/terms'),
         makeLink('Privacy', '/privacy'),
@@ -50,6 +48,8 @@ export const headerData = {
       ],
     },
     // Members link - show but disabled if no page
+    { text: 'Products', href: '#', disabled: true },
+    { text: 'Projects', href: '#', disabled: true },
     { text: 'Members', href: '#', disabled: true },
   ],
   actions: [{ text: 'Login', href: '/login', disabled: true }],
