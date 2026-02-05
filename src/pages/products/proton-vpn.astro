@@ -6,12 +6,31 @@ import Content from '~/components/widgets/Content.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import BlogHighlightedPosts from '~/components/widgets/BlogHighlightedPosts.astro';
+import { getRelatedPosts } from '~/utils/blog';
+import type { Post } from '~/types';
 
 const metadata = {
   title: 'Proton VPN: Secure, Private, and Uncensored Internet',
   description:
     'Discover the features and benefits of Proton VPN, the high-speed, secure VPN that protects your privacy and gives you access to the open internet.',
 };
+
+const pseudoPost: Post = {
+  id: 'proton-vpn-page',
+  slug: 'proton-vpn-page',
+  permalink: '',
+  publishDate: new Date(),
+  title: 'Proton VPN',
+  tags: [
+    { slug: 'proton-vpn', title: 'Proton VPN' },
+    { slug: 'vpn', title: 'VPN' },
+    { slug: 'privacy', title: 'Privacy' },
+    { slug: 'security', title: 'Security' },
+  ],
+};
+
+const relatedPosts = await getRelatedPosts(pseudoPost, 4);
 ---
 
 <Layout metadata={metadata}>
@@ -158,6 +177,13 @@ const metadata = {
           'Yes, our Plus plan subscribers can stream popular services like Netflix, Disney+, and Amazon Prime Video by connecting to our specialized streaming servers.',
       },
     ]}
+  />
+
+
+  <!-- Related Posts Section -->
+  <BlogHighlightedPosts
+    title="Related Posts"
+    postIds={relatedPosts.map((post) => post.id)}
   />
 
   <!-- Call to Action Section -->

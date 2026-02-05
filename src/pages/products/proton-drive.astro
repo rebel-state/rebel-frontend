@@ -1,0 +1,198 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import BlogHighlightedPosts from '~/components/widgets/BlogHighlightedPosts.astro';
+import { getRelatedPosts } from '~/utils/blog';
+import type { Post } from '~/types';
+
+const metadata = {
+  title: 'Proton Drive: Secure Cloud Storage That Protects Your Privacy',
+  description:
+    'Discover Proton Drive, the end-to-end encrypted cloud storage that keeps your files secure and private. Store, share, and collaborate with confidence.',
+};
+
+const pseudoPost: Post = {
+  id: 'proton-drive-page',
+  slug: 'proton-drive-page',
+  permalink: '',
+  publishDate: new Date(),
+  title: 'Proton Drive',
+  tags: [
+    { slug: 'proton-drive', title: 'Proton Drive' },
+    { slug: 'cloud-storage', title: 'Cloud Storage' },
+    { slug: 'privacy', title: 'Privacy' },
+    { slug: 'security', title: 'Security' },
+  ],
+};
+
+const relatedPosts = await getRelatedPosts(pseudoPost, 4);
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <HeroText
+    tagline="Product Spotlight"
+    title="Proton Drive"
+    subtitle="Secure, private cloud storage from the creators of Proton Mail. With Proton Drive, your files are end-to-end encrypted, ensuring that only you can access them."
+  />
+
+  <!-- Features Section -->
+  <Features3
+    title="Why Choose Proton Drive?"
+    subtitle="Experience a cloud storage solution where your privacy and security are the top priorities, not an afterthought."
+    columns={3}
+    items={[
+      {
+        icon: 'tabler:shield-lock',
+        title: 'End-to-End Encryption',
+        description: 'All files and folders are automatically end-to-end encrypted. No one, not even Proton, can access your data.',
+      },
+      {
+        icon: 'tabler:brand-open-source',
+        title: 'Open Source & Transparent',
+        description: 'Like all Proton services, Proton Drive is open source and subject to independent security audits.',
+      },
+      {
+        icon: 'tabler:link',
+        title: 'Secure File Sharing',
+        description: 'Share files and folders securely with password-protected, expiring links. Your data remains encrypted in transit.',
+      },
+      {
+        icon: 'tabler:users',
+        title: 'Encrypted Collaboration',
+        description: 'Work on documents with others in a secure environment, knowing that all data remains private to you and your collaborators.',
+      },
+      {
+        icon: 'tabler:file-check',
+        title: 'Version History',
+        description: 'Keep track of changes to your files and restore previous versions, ensuring your work is never lost.',
+      },
+      {
+        icon: 'tabler:cloud-upload',
+        title: 'Cross-Platform Accessibility',
+        description: 'Access your files from anywhere with our web, desktop, and mobile apps for all major platforms.',
+      },
+    ]}
+  />
+
+  <!-- Problem & Solution Section -->
+  <Content
+    isReversed
+    title="Big Tech is Watching Your Data"
+    subtitle="Most cloud storage providers can access, scan, and monetize your personal files. Your private data is not truly private."
+    items={[
+      {
+        title: 'Invasive Data Scanning',
+        description:
+          'Companies like Google and Microsoft scan your files for marketing purposes and to train their AI models.',
+      },
+      {
+        title: 'Government Backdoors',
+        description:
+          'Your data can be handed over to government agencies without your knowledge or consent.',
+      },
+      {
+        title: 'Risk of Data Breaches',
+        description:
+          'Centralized storage with weak encryption makes traditional cloud providers a prime target for hackers.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/mega-city.jpg',
+      alt: 'A city skyline representing big tech companies',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Own Your Data, For Real</h3>
+      <p>
+        Proton Drive gives you a secure alternative. Our end-to-end encryption architecture means you are in complete control of your data. Your files belong to you and you alone.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- How It Works Section -->
+  <Steps
+    title="Secure Your Files in a Few Clicks"
+    subtitle="Getting started with Proton Drive is fast and simple. Your private cloud is just moments away."
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Get a Proton Account</span>',
+        description:
+          'If you don\'t have one already, sign up for a Proton Account. This gives you access to Proton Drive and all other Proton services.',
+        icon: 'tabler:user-plus',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Choose Your Plan</span>',
+        description: 'Proton Drive offers free storage to get you started, with paid plans available for more space and advanced features.',
+        icon: 'tabler:select',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Upload Your Files</span>',
+        description: 'Simply drag and drop your files into the Proton Drive web app, or use our desktop and mobile apps to sync them automatically.',
+        icon: 'tabler:upload',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Share & Collaborate Securely</span>',
+        description: 'Start sharing files with encrypted links and collaborating in a private, end-to-end encrypted environment.',
+        icon: 'tabler:users',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/change-01.webp',
+      alt: 'Abstract illustration of data being secured in the cloud',
+    }}
+  />
+
+  <!-- FAQs Section -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Got questions about Proton Drive? We’ve got answers."
+    columns={1}
+    items={[
+      {
+        title: 'How is Proton Drive more secure than other cloud storage?',
+        description:
+          'Proton Drive uses client-side, end-to-end encryption. This means your files are encrypted on your device before they are ever uploaded to our servers. Only you hold the key, making it technically impossible for us or anyone else to access your files.',
+      },
+      {
+        title: 'Can I collaborate with others on Proton Drive?',
+        description:
+          'Yes, Proton Drive is built for secure collaboration. You can share files and folders with other Proton users and work together while maintaining end-to-end encryption.',
+      },
+      {
+        title: 'What is the difference between Proton Drive and services like Google Drive or Dropbox?',
+        description:
+          'The key difference is privacy. While other services may offer encryption, they typically hold the encryption keys, meaning they can access your data. With Proton Drive, you have exclusive control over your data.',
+      },
+    ]}
+  />
+
+
+  <!-- Related Posts Section -->
+  <BlogHighlightedPosts
+    title="Related Posts"
+    postIds={relatedPosts.map((post) => post.id)}
+  />
+
+  <!-- Call to Action Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Create Your Secure Account',
+        href: '#', // Placeholder for sign-up link
+        icon: 'tabler:cloud-lock',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Take Back Control of Your Digital Files </Fragment>
+    <Fragment slot="subtitle">
+      Stop letting big tech companies profit from your data. Switch to Proton Drive and enjoy the peace of mind that comes with true data ownership.
+    </Fragment>
+  </CallToAction>
+</Layout>

@@ -1,0 +1,205 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import BlogHighlightedPosts from '~/components/widgets/BlogHighlightedPosts.astro';
+import { getRelatedPosts } from '~/utils/blog';
+import type { Post } from '~/types';
+
+const metadata = {
+  title: 'Proton for Business: The Secure, Private Communications Suite',
+  description:
+    'Protect your organization’s data with Proton’s end-to-end encrypted ecosystem. Secure email, calendar, cloud storage, and VPN for your business.',
+};
+
+const pseudoPost: Post = {
+  id: 'proton-for-business-page',
+  slug: 'proton-for-business-page',
+  permalink: '',
+  publishDate: new Date(),
+  title: 'Proton for Business',
+  tags: [
+    { slug: 'proton-for-business', title: 'Proton for Business' },
+    { slug: 'business', title: 'Business' },
+    { slug: 'privacy', title: 'Privacy' },
+    { slug: 'security', title: 'Security' },
+  ],
+};
+
+const relatedPosts = await getRelatedPosts(pseudoPost, 4);
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <HeroText
+    tagline="Product Spotlight"
+    title="Proton for Business"
+    subtitle="The all-in-one, privacy-first ecosystem for your organization. Secure your communications and data with a single, easy-to-use solution."
+  />
+
+  <!-- Features Section -->
+  <Features3
+    title="An Integrated, Encrypted Suite"
+    subtitle="Give your team the tools they need to collaborate securely and efficiently, without compromising on privacy."
+    columns={3}
+    items={[
+      {
+        icon: 'tabler:mail-filled',
+        title: 'Proton Mail',
+        description:
+          'End-to-end encrypted email with your own custom domain. Protect your sensitive business communications.',
+      },
+      {
+        icon: 'tabler:shield-check',
+        title: 'Proton VPN',
+        description:
+          'Secure your team’s internet connection, protect against surveillance, and enable access to global resources.',
+      },
+      {
+        icon: 'tabler:cloud-lock',
+        title: 'Proton Drive',
+        description:
+          'End-to-end encrypted file storage and sharing. Keep your company documents safe and confidential.',
+      },
+      {
+        icon: 'tabler:calendar-event',
+        title: 'Proton Calendar',
+        description: 'An encrypted calendar to keep your schedules private. Plan events and meetings with confidence.',
+      },
+      {
+        icon: 'tabler:user-shield',
+        title: 'Admin Controls',
+        description:
+          'Manage users, set permissions, and oversee your organization’s security from a centralized admin panel.',
+      },
+      {
+        icon: 'tabler:world-upload',
+        title: 'Easy Migration',
+        description: 'Seamlessly migrate your existing emails, contacts, and calendars to Proton’s secure ecosystem.',
+      },
+    ]}
+  />
+
+  <!-- Problem & Solution Section -->
+  <Content
+    isReversed
+    title="Your Business Data is a High-Value Target"
+    subtitle="Cybercriminals and corporate spies are constantly trying to access your confidential information. Standard business software often leaves you vulnerable."
+    items={[
+      {
+        title: 'Data Breaches & Ransomware',
+        description:
+          'A single breach can lead to devastating financial loss, reputational damage, and legal liability.',
+      },
+      {
+        title: 'Corporate Espionage',
+        description:
+          'Competitors can gain an unfair advantage by intercepting your internal communications and strategic plans.',
+      },
+      {
+        title: 'Compliance & Regulatory Risk',
+        description:
+          'Failing to protect data can result in heavy fines under regulations like GDPR, HIPAA, and others.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/red-team.jpg',
+      alt: 'A team collaborating in a high-tech environment',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Build Your Business on a Foundation of Privacy
+      </h3>
+      <p>
+        Proton for Business provides a complete, encrypted ecosystem that protects your organization's most valuable
+        asset: its data. We make it easy to implement security best practices across your entire company.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- How It Works Section -->
+  <Steps
+    title="Onboard Your Organization in Simple Steps"
+    subtitle="Transitioning to a secure, private ecosystem is straightforward with Proton."
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Choose Your Plan</span>',
+        description:
+          'Select the Proton for Business plan that fits your organization’s size and needs. All plans include the full suite of Proton services.',
+        icon: 'tabler:select',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Set Up Your Organization</span>',
+        description:
+          'Use the admin panel to add your custom domain, create user accounts, and configure security settings.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Migrate Your Data</span>',
+        description:
+          'Use our Easy Switch tool to seamlessly import your emails, contacts, and calendars from your previous provider.',
+        icon: 'tabler:database-import',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Empower Your Team</span>',
+        description:
+          'Invite your team members to start using Proton’s encrypted suite for their daily communications and collaboration.',
+        icon: 'tabler:users',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/do-something-great.jpg',
+      alt: 'An inspiring image of a modern office space',
+    }}
+  />
+
+  <!-- FAQs Section -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Common questions about implementing Proton for Business."
+    columns={1}
+    items={[
+      {
+        title: 'Is Proton for Business suitable for a small business?',
+        description:
+          'Yes, Proton for Business is designed to be scalable. Our plans are affordable and flexible, making it easy for businesses of all sizes to protect their data.',
+      },
+      {
+        title: 'How does Proton help with data compliance (e.g., GDPR, HIPAA)?',
+        description:
+          'Proton’s end-to-end and zero-access encryption provide the technical controls needed to help you comply with strict data protection regulations. We provide tools that support your GDPR and HIPAA compliance efforts.',
+      },
+      {
+        title: 'Can we use our own company domain name?',
+        description:
+          'Yes, all Proton for Business plans allow you to use your own custom domain for email addresses (e.g., your.name@yourcompany.com).',
+      },
+    ]}
+  />
+
+  <!-- Related Posts Section -->
+  <BlogHighlightedPosts title="Related Posts" postIds={relatedPosts.map((post) => post.id)} />
+
+  <!-- Call to Action Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Secure Your Business Today',
+        href: '#', // Placeholder for sales/contact link
+        icon: 'tabler:shield-check',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Protect Your Organization’s Communications </Fragment>
+    <Fragment slot="subtitle">
+      Join the growing number of businesses that are choosing privacy and security with Proton. Secure a consultation or
+      get started right away.
+    </Fragment>
+  </CallToAction>
+</Layout>
