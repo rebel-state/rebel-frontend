@@ -1,10 +1,10 @@
 ---
 title: "A Deep Dive into Proton Mail's Privacy Features"
-publishDate: "Feb 06 2026"
-category: "Privacy"
-tags: ["Proton Mail", "Email", "Privacy", "Security"]
-description: "Proton Mail is renowned for its commitment to user privacy. In this article, we explore the key security features that make it a fortress for your digital communications."
-image: "~/assets/images/dark-locked.jpg"
+publishDate: 2026-02-07T00:00:00Z
+category: 'Privacy'
+tags: ['Proton Mail', 'Email', 'Privacy', 'Security']
+description: 'Proton Mail is renowned for its commitment to user privacy. In this article, we explore the key security features that make it a fortress for your digital communications.'
+image: '~/assets/images/dark-locked.jpg'
 ---
 
 In an era where digital surveillance is rampant and data breaches are common, securing your email communication has never been more critical. Proton Mail has emerged as a leading provider of secure email services, offering a suite of privacy-focused features designed to protect your most sensitive information. Let's take a closer look at what makes Proton Mail a top choice for privacy-conscious users.
