@@ -279,3 +279,9 @@ export interface Content extends Omit<Headline, 'classes'>, Widget {
 }
 
 export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {}
+
+export interface NavLink {
+  text: string;
+  href: string;
+  disabled?: boolean; // Optional, assuming some links might not have it
+}
