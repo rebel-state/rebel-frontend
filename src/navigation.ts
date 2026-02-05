@@ -50,10 +50,11 @@ export const headerData = {
     {
       text: 'Products',
       links: [
-        makeLink('Proton for Business', '/products/proton-business'),
+        makeLink('Proton for Business', '/products/proton-for-business'),
         makeLink('Proton Mail', '/products/proton-mail'),
         makeLink('Proton VPN', '/products/proton-vpn'),
         makeLink('Proton Pass', '/products/proton-pass'),
+        makeLink('Proton Authenticator', '/products/proton-authenticator'),
         makeLink('Proton Drive', '/products/proton-drive'),
       ],
     },
@@ -66,16 +67,24 @@ export const headerData = {
 
 export const footerData = {
   links: [
+
+    // Mirror the 'About' section links in headerData so company links stay in sync
     {
-      title: 'Product',
-      links: [
-        { text: 'Proton For Business', href: getPermalink('/products/'), disabled: true },
-        { text: 'Mail', href: getPermalink('/products/'), disabled: true },
-        { text: 'VPN', href: getPermalink('/products/'), disabled: true },
-        { text: 'Password', href: getPermalink('/products/'), disabled: true },
-        { text: 'Storage', href: getPermalink('/products/'), disabled: true },
-      ],
-    },
+      title: 'Products',
+      links: ((): Array<{ text: string; href: string; disabled?: boolean }> => {
+        const products = headerData.links.find((l) => l.text === 'Products');
+        if (!products || !Array.isArray(products.links)) {
+          return [
+            { text: 'Products', href: getPermalink('/products/proton-for-business') },
+          ];
+        }
+        return (products as { links: NavLink[] }).links.map((item) => ({
+          text: item.text,
+          href: item.href,
+          disabled: item.disabled,
+        }));
+      })(),
+    },    
     {
       title: 'Shop',
       links: [

@@ -6,11 +6,30 @@ import Content from '~/components/widgets/Content.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import BlogHighlightedPosts from '~/components/widgets/BlogHighlightedPosts.astro';
+import { getRelatedPosts } from '~/utils/blog';
+import type { Post } from '~/types';
 
 const metadata = {
   title: 'Proton Mail: Secure, Private Email',
   description: 'Discover the features and benefits of Proton Mail, the world’s largest secure email provider. Take control of your digital privacy.',
 };
+
+const pseudoPost: Post = {
+  id: 'proton-mail-page',
+  slug: 'proton-mail-page',
+  permalink: '',
+  publishDate: new Date(),
+  title: 'Proton Mail',
+  tags: [
+    { slug: 'proton-mail', title: 'Proton Mail' },
+    { slug: 'email', title: 'Email' },
+    { slug: 'privacy', title: 'Privacy' },
+    { slug: 'security', title: 'Security' },
+  ],
+};
+
+const relatedPosts = await getRelatedPosts(pseudoPost, 4);
 ---
 
 <Layout metadata={metadata}>
@@ -152,6 +171,13 @@ const metadata = {
           'Proton Mail is supported by its community of paying users. Revenue from paid subscriptions is used to develop the service and advocate for online privacy.',
       },
     ]}
+  />
+
+
+  <!-- Related Posts Section -->
+  <BlogHighlightedPosts
+    title="Related Posts"
+    postIds={relatedPosts.map((post) => post.id)}
   />
 
   <!-- Call to Action Section -->

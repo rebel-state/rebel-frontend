@@ -1,0 +1,207 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import BlogHighlightedPosts from '~/components/widgets/BlogHighlightedPosts.astro';
+import { getRelatedPosts } from '~/utils/blog';
+import type { Post } from '~/types';
+
+const metadata = {
+  title: 'Proton Pass: Secure Your Digital Identity',
+  description:
+    'Discover Proton Pass, the secure and open-source password manager that protects your online identity and simplifies your digital life.',
+};
+
+const pseudoPost: Post = {
+  id: 'proton-pass-page',
+  slug: 'proton-pass-page',
+  permalink: '',
+  publishDate: new Date(),
+  title: 'Proton Pass',
+  tags: [
+    { slug: 'proton-pass', title: 'Proton Pass' },
+    { slug: 'password-manager', title: 'Password Manager' },
+    { slug: 'privacy', title: 'Privacy' },
+    { slug: 'security', title: 'Security' },
+  ],
+};
+
+const relatedPosts = await getRelatedPosts(pseudoPost, 4);
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <HeroText
+    tagline="Product Spotlight"
+    title="Proton Pass"
+    subtitle="The password manager that puts your security and privacy first. End-to-end encrypted, open-source, and developed by the creators of Proton Mail."
+  />
+
+  <!-- Features Section -->
+  <Features3
+    title="Why Choose Proton Pass?"
+    subtitle="Go beyond simple password storage. Proton Pass is an identity manager, designed to secure your entire digital life."
+    columns={3}
+    items={[
+      {
+        icon: 'tabler:shield-lock',
+        title: 'End-to-End Encryption',
+        description:
+          'Your data is encrypted at all times and can only be read by you. Not even we can see your passwords.',
+      },
+      {
+        icon: 'tabler:brand-open-source',
+        title: 'Open Source & Audited',
+        description:
+          'Built on open standards, our code is open to inspection and has been independently audited for security.',
+      },
+      {
+        icon: 'tabler:face-mask-off',
+        title: 'Hide-my-email Aliases',
+        description:
+          'Create unique email aliases to sign up for online services, protecting your real email address from spam and breaches.',
+      },
+      {
+        icon: 'tabler:key',
+        title: 'Integrated 2FA Authenticator',
+        description:
+          'Secure your accounts with two-factor authentication directly within Proton Pass, no separate app needed.',
+      },
+      {
+        icon: 'tabler:credit-card',
+        title: 'Encrypted Credit Cards & Notes',
+        description:
+          'Safely store not just passwords, but also credit card details and private notes with the same strong encryption.',
+      },
+      {
+        icon: 'tabler:device-desktop-analytics',
+        title: 'Cross-Platform Sync',
+        description:
+          'Access your passwords, 2FA codes, and notes on all your devices with our apps for web, desktop, and mobile.',
+      },
+    ]}
+  />
+
+  <!-- Problem & Solution Section -->
+  <Content
+    isReversed
+    title="Your Digital Identity is Under Constant Threat"
+    subtitle="Weak passwords, data breaches, and phishing attacks put your online accounts at risk. Managing it all alone is a recipe for disaster."
+    items={[
+      {
+        title: 'Password Overload',
+        description:
+          'Using the same weak password for multiple services is a huge security risk. Remembering dozens of unique, strong passwords is impossible.',
+      },
+      {
+        title: 'Data Breaches are Common',
+        description:
+          'Companies you trust with your data are breached every day, exposing your passwords and personal information on the dark web.',
+      },
+      {
+        title: 'Phishing and Scams',
+        description:
+          'Scammers try to trick you into revealing your login credentials. Without the right tools, it is easy to fall victim.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/dark-locked.jpg',
+      alt: 'A visual metaphor for digital security',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Take Control of Your Digital Identity
+      </h3>
+      <p>
+        Proton Pass secures your credentials and makes it easy to follow security best practices. It’s your first line
+        of defense against cybercriminals and data breaches.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- How It Works Section -->
+  <Steps
+    title="Get Started with Proton Pass in Minutes"
+    subtitle="Securing your digital life has never been easier. Follow these simple steps to get set up."
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Create Your Proton Account</span>',
+        description:
+          'Sign up for a free Proton Account to get started. If you already use Proton Mail or VPN, you can use your existing account.',
+        icon: 'tabler:user-plus',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Add the Extension or App</span>',
+        description:
+          'Install the Proton Pass browser extension for your favorite browser (Chrome, Firefox, Edge) or get the mobile app for iOS and Android.',
+        icon: 'tabler:download',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Start Securing Your Logins</span>',
+        description:
+          'Begin by saving new logins, importing your existing passwords from other managers, and generating strong, unique passwords for every site.',
+        icon: 'tabler:lock-access',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Browse with Confidence</span>',
+        description:
+          'Proton Pass will autofill your credentials, create email aliases, and make your online experience seamless and secure.',
+        icon: 'tabler:mood-smile',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/screen-glasses.jpg',
+      alt: 'Illustration of a secure and organized digital life',
+    }}
+  />
+
+  <!-- FAQs Section -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Have questions? We have answers."
+    columns={1}
+    items={[
+      {
+        title: 'Is Proton Pass really secure?',
+        description:
+          'Yes. Proton Pass uses battle-tested end-to-end encryption to secure your data. This means no one, not even Proton, can access your stored information. Our code is also open source and independently audited.',
+      },
+      {
+        title: 'How does Proton Pass compare to other password managers?',
+        description:
+          "Proton Pass is more than a password manager; it's an identity manager. It integrates email aliases and a 2FA authenticator, and is part of the privacy-focused Proton ecosystem. It is also one of the few that is fully open-source.",
+      },
+      {
+        title: 'Can I import my passwords from another service?',
+        description:
+          'Yes, Proton Pass includes a built-in importer that supports importing your passwords from most major password managers, as well as from your browser.',
+      },
+    ]}
+  />
+
+  <!-- Related Posts Section -->
+  <BlogHighlightedPosts title="Related Posts" postIds={relatedPosts.map((post) => post.id)} />
+
+  <!-- Call to Action Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Proton Pass for Free',
+        href: '#', // Placeholder for affiliate link
+        icon: 'tabler:shield-check',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Secure Your Digital Life Today </Fragment>
+    <Fragment slot="subtitle">
+      Join the privacy revolution and take the first step towards a more secure online experience. Get started with
+      Proton Pass for free.
+    </Fragment>
+  </CallToAction>
+</Layout>

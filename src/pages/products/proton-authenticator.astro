@@ -1,0 +1,195 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import BlogHighlightedPosts from '~/components/widgets/BlogHighlightedPosts.astro';
+import { getRelatedPosts } from '~/utils/blog';
+import type { Post } from '~/types';
+
+const metadata = {
+  title: 'Proton Authenticator: Strengthen Your Account Security',
+  description:
+    'Add a powerful layer of security to your online accounts with Proton Authenticator, the free, secure, and open-source two-factor authentication (2FA) app.',
+};
+
+const pseudoPost: Post = {
+  id: 'proton-authenticator-page',
+  slug: 'proton-authenticator-page',
+  permalink: '',
+  publishDate: new Date(),
+  title: 'Proton Authenticator',
+  tags: [
+    { slug: 'proton-authenticator', title: 'Proton Authenticator' },
+    { slug: '2fa', title: '2FA' },
+    { slug: 'two-factor-authentication', title: 'Two-Factor Authentication' },
+    { slug: 'security', title: 'Security' },
+  ],
+};
+
+const relatedPosts = await getRelatedPosts(pseudoPost, 4);
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <HeroText
+    tagline="Product Spotlight"
+    title="Proton Authenticator"
+    subtitle="The simple and secure way to protect your accounts with two-factor authentication. From the trusted, privacy-focused team at Proton."
+  />
+
+  <!-- Features Section -->
+  <Features3
+    title="Why Use Proton Authenticator?"
+    subtitle="Secure your logins from password theft and phishing attacks with a 2FA app designed for maximum security and ease of use."
+    columns={3}
+    items={[
+      {
+        icon: 'tabler:shield-check',
+        title: 'Strong Security',
+        description: 'Protect your accounts with time-based (TOTP) and HMAC-based (HOTP) one-time passwords.',
+      },
+      {
+        icon: 'tabler:brand-open-source',
+        title: 'Open Source & Verified',
+        description: 'Proton Authenticator is fully open source and has undergone independent security audits for your peace of mind.',
+      },
+      {
+        icon: 'tabler:lock',
+        title: 'End-to-End Encrypted Backup',
+        description: 'Securely back up your 2FA codes with end-to-end encryption and restore them on new devices easily.',
+      },
+      {
+        icon: 'tabler:device-mobile',
+        title: 'Seamless Integration',
+        description: 'Works with most major online services that support 2FA, including Google, Facebook, and your Proton Account.',
+      },
+      {
+        icon: 'tabler:eye-off',
+        title: 'Privacy Focused',
+        description: 'No ads, no trackers, no data collection. Your privacy is our priority, just like in all Proton products.',
+      },
+      {
+        icon: 'tabler:user-check',
+        title: 'Easy to Use',
+        description: 'A clean, simple interface makes it easy to add new accounts and generate codes. Security shouldn’t be complicated.',
+      },
+    ]}
+  />
+
+  <!-- Problem & Solution Section -->
+  <Content
+    isReversed
+    title="Passwords Alone Are No Longer Enough"
+    subtitle="Even strong passwords can be stolen or phished. Two-factor authentication is the industry standard for protecting your most sensitive accounts from unauthorized access."
+    items={[
+      {
+        title: 'Phishing Attacks',
+        description:
+          'Hackers create fake login pages to trick you into revealing your username and password, giving them full access to your account.',
+      },
+      {
+        title: 'Data Breaches',
+        description:
+          'Your password could be leaked in a data breach, allowing criminals to try it on all your other accounts.',
+      },
+      {
+        title: 'Keyloggers & Malware',
+        description:
+          'Malicious software on your computer can steal your passwords as you type them, bypassing even the strongest password policies.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/crypto.jpg',
+      alt: 'Abstract image representing cryptographic security',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Add a Crucial Layer of Defense</h3>
+      <p>
+        Proton Authenticator requires you to verify your identity with a second device (your phone), making it exponentially harder for an attacker to gain access, even if they have your password.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- How It Works Section -->
+  <Steps
+    title="Enable Strong 2FA in Three Easy Steps"
+    subtitle="Get started with Proton Authenticator and boost your account security in just a few moments."
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Install the App</span>',
+        description:
+          'Download Proton Authenticator for free on your iOS or Android device from the App Store or Google Play.',
+        icon: 'tabler:download',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Scan the QR Code</span>',
+        description:
+          'In the security settings of your favorite online service, choose to enable 2FA and scan the QR code with the Proton Authenticator app.',
+        icon: 'tabler:qrcode',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Enter the Code</span>',
+        description:
+          'The app will generate a 6-digit code. Enter it on the website to confirm, and you’re all set! Your account is now protected.',
+        icon: 'tabler:key',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/new-matrix.jpg',
+      alt: 'Illustration showing a secure data matrix',
+    }}
+  />
+
+  <!-- FAQs Section -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Find answers to common questions about Proton Authenticator."
+    columns={1}
+    items={[
+      {
+        title: 'Is Proton Authenticator free?',
+        description:
+          "Yes, Proton Authenticator is completely free. We believe everyone deserves access to essential security tools.",
+      },
+      {
+        title: 'Can I use it for accounts other than my Proton Account?',
+        description:
+          'Absolutely. Proton Authenticator is a standard TOTP/HOTP app and works with all services that support this form of two-factor authentication, such as Google, Microsoft, Dropbox, and thousands more.',
+      },
+      {
+        title: 'What happens if I lose my phone?',
+        description:
+          'Proton Authenticator offers an optional, end-to-end encrypted backup of your 2FA seeds. If you enable this feature, you can easily restore your codes on a new device.',
+      },
+    ]}
+  />
+
+
+  <!-- Related Posts Section -->
+  <BlogHighlightedPosts
+    title="Related Posts"
+    postIds={relatedPosts.map((post) => post.id)}
+  />
+
+  <!-- Call to Action Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Download for Free',
+        href: '#', // Placeholder for app store links
+        icon: 'tabler:device-mobile-code',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Upgrade Your Security Today </Fragment>
+    <Fragment slot="subtitle">
+      Take a simple, powerful step to protect your digital life from hackers and account takeovers. Download Proton Authenticator for free.
+    </Fragment>
+  </CallToAction>
+</Layout>

@@ -38,3 +38,8 @@ This is a professional website and application for **Rebel State**, focused on b
 - `npm run dev` - Start the local development server.
 - `npm run build` - Build the production site.
 - `npm run preview` - Preview the production build locally.
+
+
+## Context Data
+Load the following folders in as context item sources:
+- ./src/
