@@ -58,8 +58,8 @@ export const headerData = {
       ],
     },
     // Members link - show but disabled if no page
-    //{ text: 'Projects', href: '#', disabled: true },
-    // { text: 'Members', href: '#', disabled: true },
+    { text: 'Projects', href: '#', disabled: true },
+    { text: 'Members', href: '#', disabled: true },
   ],
   actions: [{ text: 'Login', href: '/login', disabled: true }],
 };
