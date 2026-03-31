@@ -1,0 +1,42 @@
+---
+import Form from '~/components/ui/Form.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Sovereign Voice Login',
+  description: 'Access your Sovereign Voice account.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Sovereign Voice"
+    title="Customer Login"
+    subtitle="Access your Sovereign Voice dashboard."
+  />
+
+  <Form
+    id="login-form"
+    title="Login"
+    subtitle="Enter your credentials to access your account."
+    inputs={[
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email',
+      },
+      {
+        type: 'password',
+        name: 'password',
+        label: 'Password',
+      },
+    ]}
+    button="Login"
+    disclaimer={{
+        label: "Don't have an account yet?",
+        href: '/products/sovereign-voice/signup',
+        linkText: 'Sign up here',
+    }}
+  />
+</Layout>

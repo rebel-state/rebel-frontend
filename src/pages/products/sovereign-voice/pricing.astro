@@ -1,0 +1,123 @@
+---
+import Content from '~/components/widgets/Content.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Sovereign Voice Pricing',
+  description: 'Flexible pricing plans for businesses of all sizes.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Sovereign Voice"
+    title="Flexible Pricing for Every Business"
+    subtitle="Choose the plan that's right for you. All plans come with a 30-day money-back guarantee."
+  />
+
+  <Pricing
+    id="pricing"
+    title="Pricing Plans"
+    subtitle="Simple, transparent pricing that scales with your business."
+    prices={[
+      {
+        title: 'Early Adopter',
+        price: 99,
+        period: 'per month',
+        items: [
+          {
+            description: 'Up to 500 minutes/month',
+          },
+          {
+            description: 'All Agentic Capabilities',
+          },
+          {
+            description: 'All System Integrations',
+          },
+          {
+            description: 'Priority Support',
+          },
+        ],
+        callToAction: {
+          text: 'Sign Up Now',
+          href: '/products/sovereign-voice/signup',
+        },
+        hasPrice: true,
+        isMostPopular: true,
+      },
+      {
+        title: 'Pay as you go',
+        price: 0.29,
+        period: 'per minute',
+        items: [
+          {
+            description: 'No monthly commitment',
+          },
+          {
+            description: 'All Agentic Capabilities',
+          },
+          {
+            description: 'All System Integrations',
+          },
+          {
+            description: 'Standard Support',
+          },
+        ],
+        callToAction: {
+          text: 'Contact Us',
+          href: '/contact',
+        },
+        hasPrice: true,
+      },
+      {
+        title: 'Enterprise',
+        price: 'Custom',
+        period: 'per month',
+        items: [
+          {
+            description: 'Unlimited minutes',
+          },
+          {
+            description: 'White-labeling and custom domains',
+          },
+          {
+            description: 'Dedicated support and onboarding',
+          },
+          {
+            description: 'Custom integrations',
+          },
+        ],
+        callToAction: {
+          text: 'Contact Us',
+          href: '/contact',
+        },
+        hasPrice: false,
+      },
+    ]}
+  />
+
+  <Content
+    id="early-adopters"
+    isReversed
+    isAfterContent
+    title="A Note for Our Early Adopters"
+    subtitle="Help us shape the future of conversational AI."
+    items={[
+        {
+            title: 'Why we want you',
+            description: 'We are looking for forward-thinking businesses to partner with us as we launch Sovereign Voice. Your feedback will be invaluable in helping us refine our product and build the best AI receptionist on the market.'
+        },
+        {
+            title: 'Our Guarantee',
+            description: 'We are confident that you will love Sovereign Voice. But if for any reason you are not completely satisfied, we will refund your money, no questions asked. We stand behind our product and we are committed to your success.'
+        }
+    ]}
+    image={{
+      src: '~/assets/images/change-01.webp',
+      alt: 'Early Adopters',
+    }}
+  />
+
+</Layout>

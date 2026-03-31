@@ -17,6 +17,7 @@ const pageExists = (href: string) => {
     const candidates = [
       path.join(process.cwd(), 'src', 'pages', `${cleaned}.astro`),
       path.join(process.cwd(), 'src', 'pages', cleaned, 'index.astro'),
+      path.join(process.cwd(), 'src', 'pages', `${cleaned}.md`),
     ];
     return candidates.some((c) => fs.existsSync(c));
   } catch (err) {
@@ -38,45 +39,66 @@ export const headerData = {
         makeLink('Privacy', '/privacy'),
       ],
     },
-    {
-      text: 'Info',
-      links: [
-        makeLink('Latest Articles', '/blog/'),
-        makeLink('Hot Topics', '/blog'),
-        makeLink('News', '/blog'),
-        makeLink('Tutorials', '/blog'),
-      ],
-    },
+    { text: 'Articles', href: getPermalink('/articles'), disabled: false },
     {
       text: 'Products',
       links: [
-        makeLink('Proton for Business', '/products/proton-for-business'),
-        makeLink('Proton Mail', '/products/proton-mail'),
-        makeLink('Proton VPN', '/products/proton-vpn'),
-        makeLink('Proton Pass', '/products/proton-pass'),
-        makeLink('Proton Authenticator', '/products/proton-authenticator'),
-        makeLink('Proton Drive', '/products/proton-drive'),
+        makeLink('Proton Suite', '/products/proton/'),
+        {
+          text: 'Sovereign Voice',
+          links: [
+            { text: 'Home', href: getPermalink('/products/sovereign-voice'), disabled: true, tooltip: 'coming soon' },
+            {
+              text: 'Features',
+              href: getPermalink('/products/sovereign-voice/features'),
+              disabled: true,
+              tooltip: 'coming soon',
+            },
+            {
+              text: 'Pricing',
+              href: getPermalink('/products/sovereign-voice/pricing'),
+              disabled: true,
+              tooltip: 'coming soon',
+            },
+            {
+              text: 'Compare',
+              href: getPermalink('/products/sovereign-voice/comparison'),
+              disabled: true,
+              tooltip: 'coming soon',
+            },
+            {
+              text: 'Sign Up',
+              href: getPermalink('/products/sovereign-voice/signup'),
+              disabled: true,
+              tooltip: 'members area coming soon',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      text: 'Members',
+      links: [
+        { text: 'Login', href: '#', disabled: true, tooltip: 'members area coming soon' },
+        { text: 'Dashboard', href: '#', disabled: true, tooltip: 'members area coming soon' },
+        { text: 'Profile', href: '#', disabled: true, tooltip: 'members area coming soon' },
       ],
     },
     // Members link - show but disabled if no page
     { text: 'Projects', href: '#', disabled: true },
-    { text: 'Members', href: '#', disabled: true },
   ],
-  actions: [{ text: 'Login', href: '/login', disabled: true }],
+  actions: [],
 };
 
 export const footerData = {
   links: [
-
     // Mirror the 'About' section links in headerData so company links stay in sync
     {
       title: 'Products',
       links: ((): Array<{ text: string; href: string; disabled?: boolean }> => {
         const products = headerData.links.find((l) => l.text === 'Products');
         if (!products || !Array.isArray(products.links)) {
-          return [
-            { text: 'Products', href: getPermalink('/products/proton-for-business') },
-          ];
+          return [{ text: 'Products', href: getPermalink('/products/proton-for-business') }];
         }
         return (products as { links: NavLink[] }).links.map((item) => ({
           text: item.text,
@@ -84,23 +106,6 @@ export const footerData = {
           disabled: item.disabled,
         }));
       })(),
-    },    
-    {
-      title: 'Shop',
-      links: [
-        { text: 'E-Books', href: getPermalink('/shop'), disabled: true },
-        { text: 'Hardware', href: getPermalink('/shop'), disabled: true },
-        { text: 'Merch', href: getPermalink('/shop'), disabled: true },
-      ],
-    },
-    {
-      title: 'Members',
-      links: [
-        { text: 'Login', href: '#', disabled: true },
-        { text: 'Encryption', href: '#', disabled: true },
-        { text: 'Newsletter', href: '#', disabled: true },
-        { text: 'Status', href: '#', disabled: true },
-      ],
     },
     // Mirror the 'About' section links in headerData so company links stay in sync
     {

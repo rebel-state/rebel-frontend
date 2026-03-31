@@ -1,0 +1,173 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Sovereign Voice - AI Receptionist',
+  description: 'A high-performance, privacy-first AI receptionist service for high-stakes industries.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero -->
+  <Hero
+    tagline="Sovereign Voice"
+    title="The AI Receptionist That Never Misses a Call"
+    subtitle="Experience sub-800ms response times, absolute data sovereignty, and seamless integration with your existing workflows. Perfect for medical, legal, and trade professionals."
+    actions={[
+      { variant: 'primary', text: 'Get Started', href: '#contact' },
+      { variant: 'secondary', text: 'Learn More', href: '#features' },
+    ]}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'Sovereign Voice AI' }}
+  />
+
+  <!-- Features -->
+  <Features
+    id="features"
+    tagline="Core Features"
+    title="Agentic Capabilities for a Superior Experience"
+    subtitle="Sovereign Voice is more than just a chatbot. It's a powerful AI agent that can handle complex tasks with ease."
+    items={[
+      {
+        title: 'Real-time Scheduling',
+        description: 'Native OAuth integration with Google, Outlook, and Cal.com for seamless appointment booking.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Barge-In Logic',
+        description: 'Instant silence upon user interruption via Voice Activity Detection (VAD) for natural conversation flow.',
+        icon: 'tabler:robot',
+      },
+      {
+        title: 'PII Scrubbing',
+        description: 'NER (Named Entity Recognition) to redact sensitive data from transcripts, ensuring HIPAA/PHIPA compliance.',
+        icon: 'tabler:shield',
+      },
+      {
+        title: 'CRM Integration',
+        description: 'Bi-directional write-back to HubSpot, Salesforce, and Zoho to keep your customer data in sync.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Prosody Tuning',
+        description: 'Adjustable pitch, speed, and sentiment (Empathetic, Professional, Energetic) to match your brand voice.',
+        icon: 'tabler:speakerphone',
+      },
+      {
+        title: 'Retrieval-Augmented Generation (RAG)',
+        description: 'Direct ingestion of business URLs and PDFs for factual accuracy and instant knowledge base creation.',
+        icon: 'tabler:file',
+      },
+    ]}
+  />
+
+  <!-- Target Industries -->
+  <Content
+    isReversed
+    isAfterContent
+    items={[
+      {
+        title: 'Home Trades',
+        description: '24/7 emergency dispatch, instant lead capture, and seamless booking for plumbers, electricians, and other trades.',
+      },
+      {
+        title: 'Legal',
+        description: 'Empathetic and professional intake and screening, with PII scrubbing to maintain client confidentiality.',
+      },
+      {
+        title: 'Medical',
+        description: 'HIPAA compliant appointment management, with Canadian data residency to meet regulatory requirements.',
+      },
+      {
+        title: 'B2B/Industrial',
+        description: 'Technical FAQ and support, with the ability to search large catalogs and SKU databases.',
+      },
+    ]}
+    title="Built for High-Stakes Industries"
+    subtitle="Sovereign Voice is designed to meet the unique needs of businesses where every call matters."
+    image={{
+      src: '~/assets/images/dirty-wall-03.webp',
+      alt: 'Industries',
+    }}
+  />
+
+  <!-- How it works -->
+  <Steps
+    title="Instant Setup in Minutes"
+    subtitle="Get your AI receptionist up and running with our simple four-step process."
+    items={[
+      {
+        title: 'Step 1: URL Ingestion',
+        description: 'Scrape your client domain for an instant knowledge base.',
+        icon: 'tabler:link',
+      },
+      {
+        title: 'Step 2: Voice Mapping',
+        description: 'Select a human-grade persona that matches your brand.',
+        icon: 'tabler:user',
+      },
+      {
+        title: 'Step 3: Connection',
+        description: 'Link your calendars with native OAuth integration.',
+        icon: 'tabler:plug',
+      },
+      {
+        title: 'Step 4: Go Live',
+        description: 'Provision a number and start taking calls with your new AI receptionist.',
+        icon: 'tabler:player-play',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/screen-glasses.jpg',
+      alt: 'Steps',
+    }}
+  />
+
+  <Features
+    id="more-info"
+    tagline="Learn More"
+    title="Explore Sovereign Voice"
+    subtitle="Dive deeper into the features, pricing, and how we compare to the competition."
+    items={[
+      {
+        title: 'Features',
+        description: 'A detailed look at the powerful features of Sovereign Voice.',
+        icon: 'tabler:list-details',
+        callToAction: {
+            text: 'View Features',
+            href: '/products/sovereign-voice/features'
+        }
+      },
+      {
+        title: 'Pricing',
+        description: 'Flexible pricing plans for businesses of all sizes.',
+        icon: 'tabler:currency-dollar',
+        callToAction: {
+            text: 'View Pricing',
+            href: '/products/sovereign-voice/pricing'
+        }
+      },
+      {
+        title: 'Comparison',
+        description: 'See how Sovereign Voice stacks up against other solutions.',
+        icon: 'tabler:table',
+        callToAction: {
+            text: 'View Comparison',
+            href: '/products/sovereign-voice/comparison'
+        }
+      },
+    ]}
+    />
+
+  <!-- CallToAction -->
+  <CallToAction
+    id="contact"
+    actions={[{ variant: 'primary', text: 'Sign up for Early Access', href: 'https://rebelstate.com' }]}
+    title="Ready to transform your customer interactions?"
+    subtitle="Join the waitlist for Sovereign Voice and be the first to experience the future of conversational AI."
+  />
+</Layout>

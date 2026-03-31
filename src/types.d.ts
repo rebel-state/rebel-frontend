@@ -284,4 +284,5 @@ export interface NavLink {
   text: string;
   href: string;
   disabled?: boolean; // Optional, assuming some links might not have it
+  tooltip?: string;
 }

@@ -13,16 +13,17 @@ metadata:
   title:
     default: 'Rebel-State'
     template: '%s — Rebel-State'
-  description: "Rebel-State: engineering custom tooling, AI & data systems, autonomous agents, model training, content generation, and education to give organizations operational sovereignty."
+  description: 'Empowering organizations with the engineering, education and confidence to deliver the next generation of services, intellegence and operational sovereignty.'
   robots:
     index: true
     follow: true
   openGraph:
     site_name: 'Rebel-State'
     images:
-      - url: '~/assets/images/default.png'
-        width: 1200
-        height: 628
+      - url: '~/assets/images/rebel-state-logo.svg'
+        width: 1132
+        height: 297
+        alt: 'Rebel-State'
     type: website
   twitter:
     handle: '@rebelstate'
@@ -40,13 +41,13 @@ apps:
 
     post:
       isEnabled: true
-      permalink: '/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      permalink: '/articles/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
       robots:
         index: true
 
     list:
       isEnabled: true
-      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
+      pathname: 'articles' # Blog main path, you can change this to "articles" (/articles)
       robots:
         index: true
 
