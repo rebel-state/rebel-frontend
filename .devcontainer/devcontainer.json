@@ -15,7 +15,8 @@
         "bradlc.vscode-tailwindcss",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "nuxtr.nuxtr"
+        "nuxtr.nuxtr",
+        "google.geminicodeassist"
       ],
       "settings": {
         "editor.formatOnSave": true,

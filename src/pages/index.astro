@@ -9,10 +9,24 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 const metadata = {
   title: 'Rebel-State — Engineering the Future of Intelligence',
   ignoreTitleTemplate: true,
+  description:
+    'Empowering organizations with engineering, education, and confidence to deliver next-generation services, intelligence, and operational sovereignty.',
+};
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Rebel-State',
+  url: 'https://rebel-state.net',
+  logo: 'https://rebel-state.net/assets/images/rebel-state-logo.svg',
+  description:
+    'Empowering organizations with the engineering, education and confidence to deliver the next generation of services, intelligence and operational sovereignty.',
+  sameAs: ['https://twitter.com/rebelstate'],
 };
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   <!-- Hero Widget ******************* -->
 
   <Hero

@@ -6,6 +6,8 @@ import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
   title: 'About — rebel-state',
+  description:
+    'Learn about Rebel-State, a technical collective building practical, privacy-first AI and tooling for organizations.',
 };
 ---
 
@@ -16,7 +18,8 @@ const metadata = {
     image={{ src: '~/assets/images/team.jpg', alt: 'Rebel-State team' }}
   >
     <Fragment slot="subtitle">
-      rebel-state empowers organizations through custom tooling, deep business intelligence, autonomous workflows, and specialized model training — all built with data sovereignty and long-term maintainability in mind.
+      rebel-state empowers organizations through custom tooling, deep business intelligence, autonomous workflows, and
+      specialized model training — all built with data sovereignty and long-term maintainability in mind.
     </Fragment>
   </Hero>
 
@@ -40,7 +43,10 @@ const metadata = {
     ]}
   >
     <Fragment slot="content">
-      <p class="prose">rebel-state was founded by engineers, data scientists and strategists who rejected one-size-fits-all software. We focus on transparent, maintainable systems that put data sovereignty and operational leverage first.</p>
+      <p class="prose">
+        rebel-state was founded by engineers, data scientists and strategists who rejected one-size-fits-all software.
+        We focus on transparent, maintainable systems that put data sovereignty and operational leverage first.
+      </p>
     </Fragment>
   </Content>
 
@@ -49,9 +55,21 @@ const metadata = {
     subtitle="Practical, privacy-first, and built for scale"
     columns={3}
     items={[
-      { title: 'Operational Sovereignty', description: 'Software should adapt to your business, not the other way around.', icon: 'tabler:shield-check' },
-      { title: 'Craftsman Engineering', description: 'Lean, documented code and models built to endure.', icon: 'tabler:code' },
-      { title: 'Education & Empowerment', description: 'Training and docs that make teams self-sufficient.', icon: 'tabler:book' },
+      {
+        title: 'Operational Sovereignty',
+        description: 'Software should adapt to your business, not the other way around.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Craftsman Engineering',
+        description: 'Lean, documented code and models built to endure.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Education & Empowerment',
+        description: 'Training and docs that make teams self-sufficient.',
+        icon: 'tabler:book',
+      },
     ]}
   />
 </Layout>

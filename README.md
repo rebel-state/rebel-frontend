@@ -1,8 +1,9 @@
-# Rebel State
+# ![Rebel State Logo](https://raw.githubusercontent.com/rebel-state/rebel-frontend/main/.github/assets/rebel-state-logo.svg)
 
-![Rebel State Logo](https://raw.githubusercontent.com/rebel-state/rebel-frontend/main/.github/assets/rebel-state-logo.svg)
-
-Rebel-State is a premier technical collective that empowers organizations with custom tooling, business intelligence & AI integration, autonomous agents, model training, content generation, and educational tooling.
+![Static Badge](https://img.shields.io/badge/SUCCESS-green?style=for-the-badge&logo=github&label=Deployment&labelColor=darkorange)
+![Static Badge](https://img.shields.io/badge/build-pending__implementation-blue?style=for-the-badge&logo=github&labelColor=darkorange)
+![Static Badge](https://img.shields.io/badge/status-active_development-red?style=for-the-badge&logo=github&labelColor=darkorange)
+![Static Badge](https://img.shields.io/badge/Version-0.5.1-lightgray?style=for-the-badge&logo=github&labelColor=darkorange)
 
 ## Engineering the Future
 
@@ -14,65 +15,18 @@ This repository represents the public gateway into the Rebel-State ecosystem. It
 coming soon
 ```
 
-### Development
+<!-- Reference Links and Config Options -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-Start the local development server:
+[github-username]: rebel-state
+[github-projects-url]: https://github.com/orgs/rebel-state/projects/4
+[github-repo-name]: rebel-frontend
+[github-repo-url]: https://github.com/rebel-state/rebel-frontend
+[github-issues-url]: https://github.com/rebel-state/rebel-frontend/issues
+[rebel-logo-url]: https://raw.githubusercontent.com/rebel-state/rebel-frontend/main/.github/assets/rebel-state-logo.svg
+[rebel-public-url]: https://rebel-state.net
 
-```bash
-npm run dev
-```
+<!-- Badges -->
 
-The site will be available at `http://localhost:4321`
-
-### Build
-
-Create an optimized production build:
-
-```bash
-npm run build
-```
-
-### Preview
-
-Preview the production build locally:
-
-```bash
-npm run preview
-```
-
-## Available Scripts
-
-| Command           | Description                              |
-| ----------------- | ---------------------------------------- |
-| `npm run dev`     | Start development server                 |
-| `npm run build`   | Build for production                     |
-| `npm run preview` | Preview production build                 |
-| `npm run check`   | Run all checks (Astro, ESLint, Prettier) |
-| `npm run fix`     | Fix code issues with ESLint and Prettier |
-
-### Docker Deployment
-
-A Docker configuration is included. Build and run:
-
-```bash
-docker build -t rebel-state-frontend .
-docker run -p 80:80 rebel-state-frontend
-```
-
-### Code Quality Checks
-
-Run all checks:
-
-```bash
-npm run check
-```
-
-Fix code issues automatically:
-
-```bash
-npm run fix
-```
-
-## License
-
-This project is licensed under the MIT License. See [LICENSE.md](./LICENSE.md) for details.
+[badge-deployment]: https://deploy-badge.vercel.app/vercel/astro-paper-jet-chi?style=for-the-badge&name=Deployment+Status
+[vivaldi-badge]: https://img.shields.io/badge/Vivaldi-EF3939?logo=Vivaldi&logoColor=white

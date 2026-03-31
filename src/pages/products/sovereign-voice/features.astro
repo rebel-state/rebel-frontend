@@ -1,0 +1,116 @@
+---
+import Features from '~/components/widgets/Features.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Sovereign Voice Features',
+  description: 'A detailed look at the powerful features of Sovereign Voice.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Sovereign Voice"
+    title="A Deep Dive into Sovereign Voice Features"
+    subtitle="Discover the powerful capabilities that make Sovereign Voice the most advanced AI receptionist on the market."
+  />
+
+  <Features
+    id="agentic-capabilities"
+    title="Agentic Capabilities"
+    subtitle="Sovereign Voice is a powerful AI agent that can handle complex tasks with ease."
+    items={[
+      {
+        title: 'Real-time Scheduling',
+        description: 'Native OAuth integration with Google, Outlook, and Cal.com for seamless appointment booking.',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: 'Barge-In Logic',
+        description: 'Instant silence upon user interruption via Voice Activity Detection (VAD) for natural conversation flow.',
+        icon: 'tabler:microphone',
+      },
+      {
+        title: 'Prosody Tuning',
+        description: 'Adjustable pitch, speed, and sentiment (Empathetic, Professional, Energetic) to match your brand voice.',
+        icon: 'tabler:speakerphone',
+      },
+      {
+        title: 'Retrieval-Augmented Generation (RAG)',
+        description: 'Direct ingestion of business URLs and PDFs for factual accuracy and instant knowledge base creation.',
+        icon: 'tabler:file',
+      },
+    ]}
+  />
+
+  <Features
+    id="system-integrations"
+    title="System Integrations"
+    subtitle="Seamlessly connect Sovereign Voice to your existing tools and workflows."
+    items={[
+      {
+        title: 'CRM Integration',
+        description: 'Bi-directional write-back to HubSpot, Salesforce, and Zoho to keep your customer data in sync.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Payments',
+        description: 'Stripe integration for over-the-phone deposits and payments.',
+        icon: 'tabler:credit-card',
+      },
+      {
+        title: 'Notifications',
+        description: 'Real-time webhooks for Slack, Discord, and SMS continuity.',
+        icon: 'tabler:bell',
+      },
+    ]}
+  />
+
+  <Features
+    id="privacy-and-compliance"
+    title="Privacy & Compliance"
+    subtitle="Your data is your own. We keep it that way."
+    items={[
+      {
+        title: 'HIPAA/PHIPA Ready',
+        description: 'Signed BAA support for medical clients.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'PII Scrubbing',
+        description: 'NER (Named Entity Recognition) to redact sensitive data from transcripts.',
+        icon: 'tabler:shield',
+      },
+      {
+        title: 'Zero-Training Clause',
+        description: 'Enterprise API usage ensures no customer data is used for model training.',
+        icon: 'tabler:lock',
+      },
+      {
+        title: 'Data Residency',
+        description: 'Regional pinning (e.g., Canadian data stays on Canadian servers).',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+
+    <Features
+    id="core-architecture"
+    title="Core Architecture"
+    subtitle="Built for speed and reliability."
+    items={[
+      {
+        title: 'Zero-Latency Voice Stack',
+        description: 'Sub-800ms response times for natural, real-time conversations.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Multi-Tenant Architecture',
+        description: 'Global dashboard for white-labeling and sub-account management.',
+        icon: 'tabler:users',
+      },
+    ]}
+  />
+
+</Layout>

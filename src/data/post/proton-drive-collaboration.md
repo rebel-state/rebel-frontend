@@ -4,7 +4,7 @@ publishDate: 2026-02-05T00:00:00Z
 category: 'How-To'
 tags: ['Proton Drive', 'File Sharing', 'Collaboration']
 description: 'Sharing files online often means giving up privacy. Proton Drive changes that. Learn how to use its encrypted file and folder sharing features to collaborate with anyone, securely.'
-image: '~/assets/images/rebel-state-logo.svg'
+image: 'https://pmecdn.protonweb.com/image-transformation/?s=c&image=images%2Ff_auto%2Cq_auto%2Fv1764784161%2Fwp-pme%2F03proton_sheets_blog_895733a69c%2F03proton_sheets_blog_895733a69c.jpg%3F_i%3DAA'
 ---
 
 Sharing files is a fundamental part of work and life, but it comes with risks. Emailing attachments can be insecure, and using mainstream cloud services often means granting them access to your data. Proton Drive provides a solution with its easy-to-use, secure, and private file-sharing features.
@@ -25,8 +25,8 @@ Once the link is public, anyone with the link can view or download the file or f
 
 For more sensitive files, you should always enable the password protection feature.
 
-*   **Set a Password:** When creating your sharing link, you can toggle the "Password protect" option and set a strong password.
-*   **Share Securely:** You can now send the link via one channel (e.g., email) and the password via another, more secure channel (e.g., a signal message or in person). This ensures that even if the link is intercepted, the file remains inaccessible without the password.
+- **Set a Password:** When creating your sharing link, you can toggle the "Password protect" option and set a strong password.
+- **Share Securely:** You can now send the link via one channel (e.g., email) and the password via another, more secure channel (e.g., a signal message or in person). This ensures that even if the link is intercepted, the file remains inaccessible without the password.
 
 ### Control Access with an Expiration Date
 
@@ -36,9 +36,9 @@ Proton Drive solves this by allowing you to set an **expiration date** for your 
 
 ### Key Benefits of Sharing with Proton Drive
 
-*   **End-to-End Encryption:** The file is encrypted before it leaves your device and is only decrypted when the recipient opens it.
-*   **Zero-Access Architecture:** Proton never has access to the files you're sharing.
-*   **Full Control:** You decide who can access your files and for how long.
-*   **Ease of Use:** Sharing is intuitive and integrated directly into the app, making it easy to be secure.
+- **End-to-End Encryption:** The file is encrypted before it leaves your device and is only decrypted when the recipient opens it.
+- **Zero-Access Architecture:** Proton never has access to the files you're sharing.
+- **Full Control:** You decide who can access your files and for how long.
+- **Ease of Use:** Sharing is intuitive and integrated directly into the app, making it easy to be secure.
 
 By using these features, you can collaborate and share files with confidence, knowing that your data is protected by a system designed for privacy from the ground up.

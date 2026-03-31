@@ -1,0 +1,116 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ItemGrid from '~/components/ui/ItemGrid.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Proton Suite: Your Complete Privacy Ecosystem',
+  description:
+    'Explore the full range of Proton products designed to protect your privacy and security online. From secure email to VPN and beyond.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <HeroText
+    tagline="Privacy Ecosystem"
+    title="Proton Suite"
+    subtitle="Discover the comprehensive suite of privacy-focused tools from Proton. Protect your digital life with end-to-end encrypted services built on the principles of data sovereignty and security."
+  />
+
+  <!-- Products Grid -->
+  <section class="py-16 md:py-20">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Products</h2>
+        <p class="text-lg text-muted max-w-2xl mx-auto">
+          Choose from our range of secure, privacy-first products designed to give you control over your digital
+          identity.
+        </p>
+      </div>
+      <ItemGrid
+        columns={3}
+        items={[
+          {
+            title: 'Proton Mail',
+            description:
+              'The only email service that protects your privacy by default. End-to-end encrypted, based in Switzerland, and built on the principle of data sovereignty.',
+            icon: 'tabler:mail',
+            callToAction: {
+              text: 'Learn More',
+              href: '/products/proton/mail',
+            },
+          },
+          {
+            title: 'Proton VPN',
+            description:
+              'The high-speed, secure VPN that protects your privacy and gives you access to the open internet. No logs, no ads, just pure privacy.',
+            icon: 'tabler:shield-check',
+            callToAction: {
+              text: 'Learn More',
+              href: '/products/proton/vpn',
+            },
+          },
+          {
+            title: 'Proton Pass',
+            description:
+              'The secure and open-source password manager that protects your online identity and simplifies your digital life with end-to-end encryption.',
+            icon: 'tabler:key',
+            callToAction: {
+              text: 'Learn More',
+              href: '/products/proton/pass',
+            },
+          },
+          {
+            title: 'Proton Drive',
+            description:
+              'End-to-end encrypted cloud storage that keeps your files secure and private. Store, share, and collaborate with confidence.',
+            icon: 'tabler:cloud',
+            callToAction: {
+              text: 'Learn More',
+              href: '/products/proton/drive',
+            },
+          },
+          {
+            title: 'Proton Authenticator',
+            description:
+              'The free, secure, and open-source two-factor authentication app that adds a powerful layer of security to your online accounts.',
+            icon: 'tabler:device-mobile',
+            callToAction: {
+              text: 'Learn More',
+              href: '/products/proton/authenticator',
+            },
+          },
+          {
+            title: 'Proton for Business',
+            description:
+              'The complete encrypted ecosystem for businesses. Secure email, calendar, cloud storage, and VPN for your organization.',
+            icon: 'tabler:building',
+            callToAction: {
+              text: 'Learn More',
+              href: '/products/proton/for-business',
+            },
+          },
+        ]}
+      />
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Started with Proton',
+        href: '#', // Placeholder for affiliate link
+        icon: 'tabler:rocket',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Ready to Protect Your Digital Life? </Fragment>
+    <Fragment slot="subtitle">
+      Join millions of users who trust Proton to safeguard their privacy. Start with any of our products today.
+    </Fragment>
+  </CallToAction>
+</Layout>

@@ -1,0 +1,45 @@
+---
+import Form from '~/components/ui/Form.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Sign Up for Sovereign Voice',
+  description: 'Join the early adopter program for Sovereign Voice.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Sovereign Voice"
+    title="Join the Early Adopter Program"
+    subtitle="Sign up now to get early access to Sovereign Voice and lock in the special pricing of $99/month."
+  />
+
+  <Form
+    id="signup-form"
+    title="Sign Up"
+    subtitle="Fill out the form below to join the waitlist. We will contact you when your account is ready."
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Your Name',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Your Email',
+      },
+      {
+        type: 'text',
+        name: 'company',
+        label: 'Company Name',
+      },
+    ]}
+    button="Join Waitlist"
+    disclaimer={{
+        label: 'This is a waitlist for our early adopter program. We will notify you when we are ready to onboard you. Payment will be handled via Stripe at that time.',
+    }}
+  />
+</Layout>
